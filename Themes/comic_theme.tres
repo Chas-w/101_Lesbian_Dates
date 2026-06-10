@@ -1,0 +1,15 @@
+[gd_resource type="Theme" format=3 uid="uid://bod5h5q0bmciw"]
+
+[ext_resource type="Texture2D" uid="uid://cb6oxc8guiq0k" path="res://Imported Textures/black_bubble.png" id="1_re5tp"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pppn2"]
+texture = ExtResource("1_re5tp")
+texture_margin_left = 42.0
+texture_margin_top = 42.0
+texture_margin_right = 42.0
+texture_margin_bottom = 42.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[resource]
+Panel/styles/panel = SubResource("StyleBoxTexture_pppn2")

@@ -6,7 +6,10 @@
 [ext_resource type="Shader" uid="uid://2qjxke2x5lqb" path="res://Shaders/wiggle_shader.gdshader" id="2_pw7vx"]
 [ext_resource type="Texture2D" uid="uid://dtltukq7ynrdo" path="res://Imported Textures/Border_Noise.png" id="3_pw7vx"]
 [ext_resource type="Texture2D" uid="uid://boqgrdrg7ovwv" path="res://Imported Textures/Noise.png" id="3_ykgsn"]
+[ext_resource type="Texture2D" uid="uid://dld0cexv10lth" path="res://Imported Textures/border_shadow.png" id="5_r00si"]
 [ext_resource type="Texture2D" uid="uid://7safw1bwp28n" path="res://Imported Textures/paper_dithered.png" id="7_c5erv"]
+[ext_resource type="Theme" uid="uid://bod5h5q0bmciw" path="res://Themes/comic_theme.tres" id="8_h8gaa"]
+[ext_resource type="Texture2D" uid="uid://cb6oxc8guiq0k" path="res://Imported Textures/black_bubble.png" id="8_pppn2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ykgsn"]
 shader = ExtResource("2_pw7vx")
@@ -15,18 +18,28 @@ shader_parameter/strength = 0.15
 shader_parameter/fps = 4.0
 shader_parameter/noise = ExtResource("3_ykgsn")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2eo31"]
-size = Vector2(29, 381.5)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pw7vx"]
-size = Vector2(416.5, 26.5)
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_c5erv"]
 shader = ExtResource("2_pw7vx")
 shader_parameter/scale = Vector2(3, 3)
 shader_parameter/strength = 0.25
 shader_parameter/fps = 2.0
 shader_parameter/noise = ExtResource("3_ykgsn")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2eo31"]
+size = Vector2(29, 381.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pw7vx"]
+size = Vector2(416.5, 26.5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h8gaa"]
+shader = ExtResource("2_pw7vx")
+shader_parameter/scale = Vector2(1, 1)
+shader_parameter/strength = 1.0
+shader_parameter/fps = 6.0
+shader_parameter/noise = ExtResource("3_ykgsn")
+
+[sub_resource type="Theme" id="Theme_r00si"]
+RichTextLabel/icons/horizontal_rule = ExtResource("8_pppn2")
 
 [node name="Issue 001" type="Node2D" unique_id=555184923]
 script = ExtResource("1_pw7vx")
@@ -38,6 +51,19 @@ material = SubResource("ShaderMaterial_ykgsn")
 position = Vector2(577.00006, 323.00003)
 scale = Vector2(0.5989584, 0.6018518)
 texture = ExtResource("3_pw7vx")
+
+[node name="Border Shadow Sprite" type="Sprite2D" parent="CanvasLayer/Border Sprite" unique_id=920489325]
+z_index = -1
+material = SubResource("ShaderMaterial_ykgsn")
+texture = ExtResource("5_r00si")
+
+[node name="Background Sprite" type="Sprite2D" parent="CanvasLayer" unique_id=1775850454]
+z_index = -4
+material = SubResource("ShaderMaterial_c5erv")
+position = Vector2(577.9529, 326.52307)
+rotation = -1.5707964
+scale = Vector2(1.7365384, 1.7365384)
+texture = ExtResource("7_c5erv")
 
 [node name="Everything" type="Control" parent="CanvasLayer" unique_id=1847136715]
 layout_mode = 3
@@ -179,8 +205,8 @@ script = ExtResource("1_eqsxp")
 brain = NodePath("../../Brain")
 brain_spawn_loc = NodePath("../../Brain/Spawn Location")
 JSON_file_path = "res://Templates/Data/Sample Dialogue.json"
-paul_dialogue = NodePath("Paul/RichTextLabel")
-date_dialogue = NodePath("Date/RichTextLabel")
+paul_dialogue = NodePath("Paul/Panel/RichTextLabel")
+date_dialogue = NodePath("Date/Panel/RichTextLabel")
 progression_icon = NodePath("Awaiting Progression Icon")
 display_buffer = 0.46
 
@@ -194,14 +220,35 @@ offset_left = 0.34796143
 offset_right = 0.093933105
 offset_bottom = 0.17996216
 
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Everything/Game/Dialogue Control/Paul" unique_id=516117115]
+[node name="Panel" type="Panel" parent="CanvasLayer/Everything/Game/Dialogue Control/Paul" unique_id=1998781770]
+material = SubResource("ShaderMaterial_h8gaa")
+custom_minimum_size = Vector2(128, 128)
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = -1
+anchor_left = -0.29500002
+anchor_top = -0.80700004
+anchor_right = 0.68100005
+anchor_bottom = 1.1620001
+offset_left = -0.034194946
+offset_top = -0.0012321472
+offset_right = -0.060440063
+offset_bottom = 0.030784607
+theme = ExtResource("8_h8gaa")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Everything/Game/Dialogue Control/Paul/Panel" unique_id=516117115]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.11400001
+anchor_top = 0.14600001
+anchor_right = 0.86500007
+anchor_bottom = 0.84800005
+offset_left = 0.02168274
+offset_top = 0.0004043579
+offset_right = -0.036209106
+offset_bottom = 0.03519821
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme = SubResource("Theme_r00si")
 text = "Paul Dialogue"
 fit_content = true
 
@@ -216,14 +263,32 @@ offset_top = -0.08000183
 offset_right = 0.24797058
 offset_bottom = -0.103012085
 
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Everything/Game/Dialogue Control/Date" unique_id=215208666]
+[node name="Panel" type="Panel" parent="CanvasLayer/Everything/Game/Dialogue Control/Date" unique_id=526484516]
+material = SubResource("ShaderMaterial_h8gaa")
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.046000004
+anchor_top = -0.49600002
+anchor_right = 0.93000007
+anchor_bottom = 1.473
+offset_left = 0.07118702
+offset_top = -0.012495041
+offset_right = 0.044891357
+offset_bottom = 0.01953125
+theme = ExtResource("8_h8gaa")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Everything/Game/Dialogue Control/Date/Panel" unique_id=215208666]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 24.000011
+offset_top = 16.0
+offset_right = -30.960892
+offset_bottom = -17.600311
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
 text = "Date Dialogue"
 fit_content = true
 
@@ -232,11 +297,3 @@ visible = false
 position = Vector2(694.5, 39)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("2_jubba")
-
-[node name="Background" type="Sprite2D" parent="CanvasLayer" unique_id=1775850454]
-z_index = -4
-material = SubResource("ShaderMaterial_c5erv")
-position = Vector2(577.9529, 326.52307)
-rotation = -1.5707964
-scale = Vector2(1.7365384, 1.7365384)
-texture = ExtResource("7_c5erv")
