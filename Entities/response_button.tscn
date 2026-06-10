@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://dspeesh6xg45j"]
+
+[ext_resource type="Script" uid="uid://bl7prw1g4oefe" path="res://Scripts/response_button.gd" id="1_0djym"]
+[ext_resource type="PackedScene" uid="uid://c4olyg6wugsan" path="res://Entities/floater.tscn" id="1_y3248"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0djym"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ilqx8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h646t"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_flf2e"]
+
+[sub_resource type="Theme" id="Theme_flf2e"]
+Button/styles/hover = SubResource("StyleBoxEmpty_0djym")
+Button/styles/hover_pressed = SubResource("StyleBoxEmpty_ilqx8")
+Button/styles/normal = SubResource("StyleBoxEmpty_h646t")
+Button/styles/pressed = SubResource("StyleBoxEmpty_flf2e")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0djym"]
+size = Vector2(57, 16)
+
+[node name="Response Button" type="Button" unique_id=1149582752 node_paths=PackedStringArray("floater") groups=["Response"]]
+anchors_preset = -1
+anchor_right = 0.072000004
+anchor_bottom = 0.048
+offset_right = 0.055992126
+offset_bottom = -0.10400009
+theme = SubResource("Theme_flf2e")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Response"
+script = ExtResource("1_0djym")
+floater = NodePath("Floater")
+
+[node name="Floater" parent="." unique_id=247418214 instance=ExtResource("1_y3248")]
+
+[node name="CollisionShape2D" parent="Floater" index="0" unique_id=383696853]
+position = Vector2(39.5, 17)
+shape = SubResource("RectangleShape2D_0djym")
+
+[editable path="Floater"]

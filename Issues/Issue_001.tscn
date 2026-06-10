@@ -1,0 +1,242 @@
+[gd_scene format=3 uid="uid://dtdlhspg8s0m1"]
+
+[ext_resource type="Script" uid="uid://bpqgyti12ksph" path="res://Scripts/dialogue_manager.gd" id="1_eqsxp"]
+[ext_resource type="Script" uid="uid://1ntguum5qcqd" path="res://Scripts/Issues/issue_001.gd" id="1_pw7vx"]
+[ext_resource type="Texture2D" uid="uid://ce1db3virehq3" path="res://icon.svg" id="2_jubba"]
+[ext_resource type="Shader" uid="uid://2qjxke2x5lqb" path="res://Shaders/wiggle_shader.gdshader" id="2_pw7vx"]
+[ext_resource type="Texture2D" uid="uid://dtltukq7ynrdo" path="res://Imported Textures/Border_Noise.png" id="3_pw7vx"]
+[ext_resource type="Texture2D" uid="uid://boqgrdrg7ovwv" path="res://Imported Textures/Noise.png" id="3_ykgsn"]
+[ext_resource type="Texture2D" uid="uid://7safw1bwp28n" path="res://Imported Textures/paper_dithered.png" id="7_c5erv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ykgsn"]
+shader = ExtResource("2_pw7vx")
+shader_parameter/scale = Vector2(1, 1)
+shader_parameter/strength = 0.15
+shader_parameter/fps = 4.0
+shader_parameter/noise = ExtResource("3_ykgsn")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2eo31"]
+size = Vector2(29, 381.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pw7vx"]
+size = Vector2(416.5, 26.5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c5erv"]
+shader = ExtResource("2_pw7vx")
+shader_parameter/scale = Vector2(3, 3)
+shader_parameter/strength = 0.25
+shader_parameter/fps = 2.0
+shader_parameter/noise = ExtResource("3_ykgsn")
+
+[node name="Issue 001" type="Node2D" unique_id=555184923]
+script = ExtResource("1_pw7vx")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1037097185]
+
+[node name="Border Sprite" type="Sprite2D" parent="CanvasLayer" unique_id=2001516106]
+material = SubResource("ShaderMaterial_ykgsn")
+position = Vector2(577.00006, 323.00003)
+scale = Vector2(0.5989584, 0.6018518)
+texture = ExtResource("3_pw7vx")
+
+[node name="Everything" type="Control" parent="CanvasLayer" unique_id=1847136715]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+
+[node name="Inventory" type="Control" parent="CanvasLayer/Everything" unique_id=1825836762]
+layout_mode = 1
+anchor_top = 0.61300004
+anchor_right = 0.99700004
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 53.77597
+offset_right = -364.54407
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ReferenceRect" type="ReferenceRect" parent="CanvasLayer/Everything/Inventory" unique_id=120062348]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 18.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+border_width = 3.8
+
+[node name="Brain" type="Control" parent="CanvasLayer/Everything" unique_id=1848323068]
+layout_mode = 1
+anchor_left = 0.67300004
+anchor_right = 0.99200004
+anchor_bottom = 0.321
+offset_left = -0.2960205
+offset_top = 4.0
+offset_right = 0.21594238
+offset_bottom = 97.99199
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ReferenceRect" type="ReferenceRect" parent="CanvasLayer/Everything/Brain" unique_id=674748452]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+border_width = 3.8
+
+[node name="Spawn Location" type="Node2D" parent="CanvasLayer/Everything/Brain" unique_id=2062275473]
+position = Vector2(199, 157)
+
+[node name="Brain Barrier" type="StaticBody2D" parent="CanvasLayer/Everything/Brain" unique_id=1549609567]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Everything/Brain/Brain Barrier" unique_id=1657121918]
+position = Vector2(3.25, 132.25)
+shape = SubResource("RectangleShape2D_2eo31")
+
+[node name="Brain Barrier2" type="StaticBody2D" parent="CanvasLayer/Everything/Brain" unique_id=1760702948]
+position = Vector2(396, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Everything/Brain/Brain Barrier2" unique_id=691669921]
+position = Vector2(-23.5, 146)
+shape = SubResource("RectangleShape2D_2eo31")
+
+[node name="Brain Barrier3" type="StaticBody2D" parent="CanvasLayer/Everything/Brain" unique_id=299370920]
+position = Vector2(396, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Everything/Brain/Brain Barrier3" unique_id=1240600430]
+position = Vector2(-193.5, -4)
+shape = SubResource("RectangleShape2D_pw7vx")
+
+[node name="Brain Barrier4" type="StaticBody2D" parent="CanvasLayer/Everything/Brain" unique_id=1656090326]
+position = Vector2(396, 206)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Everything/Brain/Brain Barrier4" unique_id=736530846]
+position = Vector2(-198, 119.25)
+shape = SubResource("RectangleShape2D_pw7vx")
+
+[node name="View" type="Control" parent="CanvasLayer/Everything" unique_id=2062660051]
+layout_mode = 1
+anchor_left = 0.67300004
+anchor_top = 0.47500002
+anchor_right = 1.0
+anchor_bottom = 0.99500006
+offset_left = -0.2960205
+offset_top = 0.19998169
+offset_right = -3.0
+offset_bottom = 0.2399292
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ReferenceRect" type="ReferenceRect" parent="CanvasLayer/Everything/View" unique_id=1086645007]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 21.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+border_width = 3.8
+
+[node name="Game" type="Control" parent="CanvasLayer/Everything" unique_id=749111273]
+layout_mode = 1
+anchor_right = 0.67800003
+anchor_bottom = 0.70100003
+offset_left = 7.0
+offset_top = 6.0
+offset_right = -0.056030273
+offset_bottom = -0.24801636
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ReferenceRect" type="ReferenceRect" parent="CanvasLayer/Everything/Game" unique_id=1304020511]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+border_width = 3.8
+
+[node name="Dialogue Control" type="Control" parent="CanvasLayer/Everything/Game" unique_id=1955836158 node_paths=PackedStringArray("brain", "brain_spawn_loc", "paul_dialogue", "date_dialogue", "progression_icon")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_eqsxp")
+brain = NodePath("../../Brain")
+brain_spawn_loc = NodePath("../../Brain/Spawn Location")
+JSON_file_path = "res://Templates/Data/Sample Dialogue.json"
+paul_dialogue = NodePath("Paul/RichTextLabel")
+date_dialogue = NodePath("Date/RichTextLabel")
+progression_icon = NodePath("Awaiting Progression Icon")
+display_buffer = 0.46
+
+[node name="Paul" type="Control" parent="CanvasLayer/Everything/Game/Dialogue Control" unique_id=21979319]
+layout_mode = 1
+anchor_left = 0.67800003
+anchor_top = 0.8
+anchor_right = 0.95900005
+anchor_bottom = 0.93900007
+offset_left = 0.34796143
+offset_right = 0.093933105
+offset_bottom = 0.17996216
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Everything/Game/Dialogue Control/Paul" unique_id=516117115]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "Paul Dialogue"
+fit_content = true
+
+[node name="Date" type="Control" parent="CanvasLayer/Everything/Game/Dialogue Control" unique_id=223196245]
+layout_mode = 1
+anchor_left = 0.048
+anchor_top = 0.116000004
+anchor_right = 0.328
+anchor_bottom = 0.25500003
+offset_left = -0.23199844
+offset_top = -0.08000183
+offset_right = 0.24797058
+offset_bottom = -0.103012085
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Everything/Game/Dialogue Control/Date" unique_id=215208666]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "Date Dialogue"
+fit_content = true
+
+[node name="Awaiting Progression Icon" type="Sprite2D" parent="CanvasLayer/Everything/Game/Dialogue Control" unique_id=1293916372]
+visible = false
+position = Vector2(694.5, 39)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_jubba")
+
+[node name="Background" type="Sprite2D" parent="CanvasLayer" unique_id=1775850454]
+z_index = -4
+material = SubResource("ShaderMaterial_c5erv")
+position = Vector2(577.9529, 326.52307)
+rotation = -1.5707964
+scale = Vector2(1.7365384, 1.7365384)
+texture = ExtResource("7_c5erv")

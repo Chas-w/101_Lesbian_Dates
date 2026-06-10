@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://bu3ldete44hh3"]
+
+[ext_resource type="Script" uid="uid://blese6kt35wtk" path="res://Scripts/inventory_item.gd" id="1_bxa1r"]
+
+[node name="Inventory Item" type="Button" unique_id=1614442202]
+anchors_preset = -1
+anchor_right = 0.038000003
+anchor_bottom = 0.048
+offset_right = -35.776
+offset_bottom = -23.104
+text = "Item"
+script = ExtResource("1_bxa1r")

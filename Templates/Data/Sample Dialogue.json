@@ -1,0 +1,84 @@
+{
+	"Paul": {
+		"Dialogue" : [
+			{
+				"Status" : "Hi!",
+				"Status_is_Array" : false,
+				"Line" : "Omg hiii . . . ",
+				"Vibe" : "Friendly"
+			},
+			{
+				"Status" : "Sup",
+				"Status_is_Array" : false,
+				"Line" : "sup . . . ",
+				"Vibe" : "Standoffish"
+			},
+			{
+				"Status" : "Hey",
+				"Status_is_Array" : false,
+				"Line" : "Hey. . . you look lovely",
+				"Vibe" : "Flirty"
+			},
+			{
+				"Status" : "It's no prob",
+				"Status_is_Array" : false,
+				"Line" : "Of course! It's no prob",
+				"Vibe" : "Flirty"
+			},
+			{
+				"Status" : "Yeah, me too",
+				"Status_is_Array" : false,
+				"Line" : "Yeah, it's gonna be awful",
+				"Vibe" : "Flirty"
+			}		
+		]
+	},
+
+	"Date" : {
+		"Name" : "Kai",
+		"Dialogue" : [
+			{
+				"Status" : "next",
+				"Status_is_Array" : false,
+				"Line" : "Blah blah blah, I'm Kai",
+				"Vibe" : "Friendly",
+				"Player_Response" : true,
+				"Next_Status" : null,
+				"Response_Options" : ["Hi!","Sup","Hey"]               
+			}, 
+			{
+				"Status" : ["Hi!","Sup","Hey"],
+				"Status_is_Array" : true,
+				"Line" : "Thanks for meeting me way out here",
+				"Vibe" : "Friendly",
+				"Player_Response" : true,
+				"Next_Status" : null,
+				"Response_Options" : ["It's no prob","Anything for you","Of course"]  
+			},
+			{
+				"Status" : "It's no prob",
+				"Status_is_Array" : false,
+				"Line" : "Well, I'm excited to see this movie",
+				"Vibe" : "Friendly",
+				"Player_Response" : false,
+				"Next_Status" : "Yeah, me too",
+				"Response_Options" : null
+			},
+			{
+				"Status" : "Yeah, me too",
+				"Status_is_Array" : false,
+				"Line" : "Let's get to our seats",
+				"Vibe" : "Friendly",
+				"Player_Response" : false,
+				"Next_Status" : "null",
+				"Response_Options" : null
+			}
+		]
+	},
+
+	"Vibe" : ["Crappy", "Stale", "Flirty", "Friendly", "Cool", "Standoffish"],
+
+	"Inventory" : {
+		
+	}
+}

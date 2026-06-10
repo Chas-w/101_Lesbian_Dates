@@ -1,0 +1,204 @@
+[gd_scene format=3 uid="uid://u41ff15lfjno"]
+
+[ext_resource type="Script" uid="uid://bpqgyti12ksph" path="res://Scripts/dialogue_manager.gd" id="1_3pxtf"]
+[ext_resource type="Texture2D" uid="uid://ce1db3virehq3" path="res://icon.svg" id="2_04qt7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_04qt7"]
+size = Vector2(4, 212)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4nkrf"]
+size = Vector2(407, 6)
+
+[node name="Issue Template" type="Node2D" unique_id=645942028]
+
+[node name="Issue would have scene specific controller" type="Node2D" parent="." unique_id=448828354]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=122141319]
+
+[node name="Everything" type="Control" parent="CanvasLayer" unique_id=355850816]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+
+[node name="Inventory" type="Control" parent="CanvasLayer/Everything" unique_id=45807961]
+layout_mode = 1
+anchor_top = 0.61300004
+anchor_right = 0.99700004
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = -0.22402954
+offset_right = 0.45593262
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ReferenceRect" type="ReferenceRect" parent="CanvasLayer/Everything/Inventory" unique_id=1599070856]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+border_width = 3.8
+
+[node name="Brain" type="Control" parent="CanvasLayer/Everything" unique_id=715408083]
+layout_mode = 1
+anchor_left = 0.65300006
+anchor_right = 1.0
+anchor_bottom = 0.321
+offset_left = -0.25604248
+offset_top = 4.0
+offset_right = -3.0
+offset_bottom = -0.008010864
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ReferenceRect" type="ReferenceRect" parent="CanvasLayer/Everything/Brain" unique_id=463014231]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+border_width = 3.8
+
+[node name="Spawn Location" type="Node2D" parent="CanvasLayer/Everything/Brain" unique_id=227465833]
+position = Vector2(196, 100)
+
+[node name="Brain Barrier" type="StaticBody2D" parent="CanvasLayer/Everything/Brain" unique_id=232511150]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Everything/Brain/Brain Barrier" unique_id=143190586]
+position = Vector2(0, 96)
+shape = SubResource("RectangleShape2D_04qt7")
+
+[node name="Brain Barrier2" type="StaticBody2D" parent="CanvasLayer/Everything/Brain" unique_id=50436611]
+position = Vector2(396, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Everything/Brain/Brain Barrier2" unique_id=1140569343]
+position = Vector2(0, 96)
+shape = SubResource("RectangleShape2D_04qt7")
+
+[node name="Brain Barrier3" type="StaticBody2D" parent="CanvasLayer/Everything/Brain" unique_id=675486123]
+position = Vector2(396, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Everything/Brain/Brain Barrier3" unique_id=1376675032]
+position = Vector2(-193.5, -4)
+shape = SubResource("RectangleShape2D_4nkrf")
+
+[node name="Brain Barrier4" type="StaticBody2D" parent="CanvasLayer/Everything/Brain" unique_id=1105627087]
+position = Vector2(396, 206)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Everything/Brain/Brain Barrier4" unique_id=699746791]
+position = Vector2(-193.5, -4)
+shape = SubResource("RectangleShape2D_4nkrf")
+
+[node name="View" type="Control" parent="CanvasLayer/Everything" unique_id=85604306]
+layout_mode = 1
+anchor_left = 0.65300006
+anchor_top = 0.324
+anchor_right = 0.99700004
+anchor_bottom = 0.597
+offset_left = -0.25604248
+offset_top = 0.04800415
+offset_right = 0.45593262
+offset_bottom = 0.14401245
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ReferenceRect" type="ReferenceRect" parent="CanvasLayer/Everything/View" unique_id=959013233]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+border_width = 3.8
+
+[node name="Game" type="Control" parent="CanvasLayer/Everything" unique_id=1339067073]
+layout_mode = 1
+anchor_right = 0.643
+anchor_bottom = 0.596
+offset_left = 7.0
+offset_top = 6.0
+offset_right = 0.26397705
+offset_bottom = -0.20800781
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ReferenceRect" type="ReferenceRect" parent="CanvasLayer/Everything/Game" unique_id=1020999458]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+border_width = 3.8
+
+[node name="Dialogue Control" type="Control" parent="CanvasLayer/Everything/Game" unique_id=1685489459 node_paths=PackedStringArray("brain", "brain_spawn_loc", "paul_dialogue", "date_dialogue", "progression_icon")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3pxtf")
+brain = NodePath("../../Brain")
+brain_spawn_loc = NodePath("../../Brain/Spawn Location")
+JSON_file_path = "res://Templates/Data/Sample Dialogue.json"
+paul_dialogue = NodePath("Paul/RichTextLabel")
+date_dialogue = NodePath("Date/RichTextLabel")
+progression_icon = NodePath("Awaiting Progression Icon")
+display_buffer = 0.46
+
+[node name="Paul" type="Control" parent="CanvasLayer/Everything/Game/Dialogue Control" unique_id=2054483225]
+layout_mode = 1
+anchor_left = 0.67800003
+anchor_top = 0.8
+anchor_right = 0.95900005
+anchor_bottom = 0.93900007
+offset_left = 0.34796143
+offset_right = 0.093933105
+offset_bottom = 0.17996216
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Everything/Game/Dialogue Control/Paul" unique_id=255969073]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Paul Dialogue"
+fit_content = true
+
+[node name="Date" type="Control" parent="CanvasLayer/Everything/Game/Dialogue Control" unique_id=979474149]
+layout_mode = 1
+anchor_left = 0.048
+anchor_top = 0.116000004
+anchor_right = 0.328
+anchor_bottom = 0.25500003
+offset_left = -0.23199844
+offset_top = -0.08000183
+offset_right = 0.24797058
+offset_bottom = -0.103012085
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Everything/Game/Dialogue Control/Date" unique_id=624886993]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Date Dialogue"
+fit_content = true
+
+[node name="Awaiting Progression Icon" type="Sprite2D" parent="CanvasLayer/Everything/Game/Dialogue Control" unique_id=919356393]
+visible = false
+position = Vector2(694.5, 39)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_04qt7")
