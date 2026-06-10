@@ -8,8 +8,11 @@
 [ext_resource type="Texture2D" uid="uid://boqgrdrg7ovwv" path="res://Imported Textures/Noise.png" id="3_ykgsn"]
 [ext_resource type="Texture2D" uid="uid://dld0cexv10lth" path="res://Imported Textures/border_shadow.png" id="5_r00si"]
 [ext_resource type="Texture2D" uid="uid://7safw1bwp28n" path="res://Imported Textures/paper_dithered.png" id="7_c5erv"]
+[ext_resource type="Texture2D" uid="uid://b8ne5ea80lya8" path="res://Imported Textures/denim.png" id="7_m6anw"]
+[ext_resource type="Texture2D" uid="uid://bhygib5jdy5qu" path="res://Imported Textures/ductape.png" id="8_gda5h"]
 [ext_resource type="Theme" uid="uid://bod5h5q0bmciw" path="res://Themes/comic_theme.tres" id="8_h8gaa"]
 [ext_resource type="Texture2D" uid="uid://cb6oxc8guiq0k" path="res://Imported Textures/black_bubble.png" id="8_pppn2"]
+[ext_resource type="Texture2D" uid="uid://b3kgil3r5hg1x" path="res://Imported Textures/brain.png" id="9_n8xr2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ykgsn"]
 shader = ExtResource("2_pw7vx")
@@ -48,7 +51,7 @@ script = ExtResource("1_pw7vx")
 
 [node name="Border Sprite" type="Sprite2D" parent="CanvasLayer" unique_id=2001516106]
 material = SubResource("ShaderMaterial_ykgsn")
-position = Vector2(577.00006, 323.00003)
+position = Vector2(574.00006, 323)
 scale = Vector2(0.5989584, 0.6018518)
 texture = ExtResource("3_pw7vx")
 
@@ -60,10 +63,32 @@ texture = ExtResource("5_r00si")
 [node name="Background Sprite" type="Sprite2D" parent="CanvasLayer" unique_id=1775850454]
 z_index = -4
 material = SubResource("ShaderMaterial_c5erv")
-position = Vector2(577.9529, 326.52307)
+position = Vector2(389.76538, 236.17343)
 rotation = -1.5707964
-scale = Vector2(1.7365384, 1.7365384)
+scale = Vector2(1.2455077, 1.1636692)
 texture = ExtResource("7_c5erv")
+
+[node name="Inventory Background" type="Sprite2D" parent="CanvasLayer/Background Sprite" unique_id=1082272488]
+z_index = -5
+material = SubResource("ShaderMaterial_c5erv")
+position = Vector2(-149.70482, 6.251831)
+scale = Vector2(0.6412125, 0.78473663)
+texture = ExtResource("7_m6anw")
+
+[node name="View Background" type="Sprite2D" parent="CanvasLayer/Background Sprite" unique_id=1621940621]
+z_index = -5
+material = SubResource("ShaderMaterial_c5erv")
+position = Vector2(-198.20729, 488.5458)
+scale = Vector2(0.42771712, 0.3611302)
+texture = ExtResource("8_gda5h")
+
+[node name="View Background2" type="Sprite2D" parent="CanvasLayer/Background Sprite" unique_id=14045569]
+z_index = -7
+material = SubResource("ShaderMaterial_c5erv")
+position = Vector2(-35.990616, 483.15674)
+rotation = 1.5707964
+scale = Vector2(1.2643658, 0.80541205)
+texture = ExtResource("9_n8xr2")
 
 [node name="Everything" type="Control" parent="CanvasLayer" unique_id=1847136715]
 layout_mode = 3
