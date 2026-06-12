@@ -17,7 +17,7 @@ var place_in_dialogue : String
 var date_dialogue_array 
 var paul_dialogue_array
 var response_button_path = preload("res://Entities/response_button.tscn")
-
+var next_status : String
 
 @export_category("Dialogue_Status")
 var display_line : bool 
@@ -46,10 +46,12 @@ func _process(delta):
 	if (waiting_for_progression):
 		progression_icon.visible = true
 		if (Input.is_action_just_pressed("Enter")):
-			if (current_dialogue.Player_Response):
+			print(speaker)
+			if (speaker == date_name && current_dialogue.Player_Response):
 				_progress_paul_response(current_dialogue.Next_Status)
-			else:
-				_progress_date_dialogue(current_dialogue.Next_Status)
+			elif ((speaker == date_name && !current_dialogue.Player_Response) || (speaker == "Paul" && (current_dialogue.One_off || current_dialogue.Interruption))):
+				print(next_status)
+				_progress_date_dialogue(next_status)
 			waiting_for_progression = false
 			progression_icon.visible = false
 
@@ -83,6 +85,9 @@ func _display_dialogue(disp : String, character : String, delta):
 				buffer = randf_range(.01,display_buffer)
 			else:
 				if (character == date_name):
+					if (current_dialogue.Next_Status != null):
+							next_status = current_dialogue.Next_Status
+							waiting_for_progression = true
 					if (current_dialogue.Response_Options != null):
 						_display_paul_options()
 					else:
@@ -90,7 +95,9 @@ func _display_dialogue(disp : String, character : String, delta):
 				display_line = false
 				setup_display = false
 				if (character == "Paul"):
-					_progress_date_dialogue(paul_status)
+					if (!current_dialogue.One_off && !current_dialogue.Interruption):
+						_progress_date_dialogue(paul_status)
+
 
 func _progress_date_dialogue(status : String): #used to call and display next dialogue option
 	if (!display_line):

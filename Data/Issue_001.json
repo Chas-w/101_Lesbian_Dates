@@ -33,7 +33,39 @@
 				"Vibe" : "Flirty",
 				"One_off" : false,
 				"Interruption" : false
-			}	
+			},
+			{
+				"Status" : "jesus",
+				"Status_is_Array" : false,
+				"Line" : "jesus christ I'm so scared",
+				"Vibe" : "Flirty",
+				"One_off" : true,
+				"Interruption" : false
+			},
+			{
+				"Status" : "jesus",
+				"Status_is_Array" : false,
+				"Line" : "jesus christ I'm so scared",
+				"Vibe" : "Flirty",
+				"One_off" : true,
+				"Interruption" : false
+			},
+			{
+				"Status" : "sensative",
+				"Status_is_Array" : false,
+				"Line" : "my nips are so sensative though this is gonna hurt",
+				"Vibe" : "Flirty",
+				"One_off" : true,
+				"Interruption" : false
+			},
+			{
+				"Status" : "idiot",
+				"Status_is_Array" : false,
+				"Line" : "this is really stupid you know",
+				"Vibe" : "Flirty",
+				"One_off" : true,
+				"Interruption" : false
+			}		
 		]
 	},
 
@@ -46,12 +78,12 @@
 				"Line" : "ok . . . ",
 				"Vibe" : "Friendly",
 				"Player_Response" : false,
-				"Next_Status" : "countdown_5",
+				"Next_Status" : "countdown 5",
 				"Response_Options" : null,
 				"Exit_Moment" : false          
 			}, 
 			{
-				"Status" : "countdown_5",
+				"Status" : "countdown 5",
 				"Status_is_Array" : false,
 				"Line" : "5 . . . ",
 				"Vibe" : "Friendly",
@@ -63,11 +95,22 @@
 			{
 				"Status" : ["scared","just do it!","bad idea"]  ,
 				"Status_is_Array" : true,
-				"Line" : "haha it'll be ok. . . 4 . . . ",
+				"Line" : "haha it'll be ok . . . ",
 				"Vibe" : "Flirty",
 				"Player_Response" : false,
-				"Next_Status" : "puncture",
+				"Next_Status" : "countdown 4",
 				"Response_Options" : null,
+				"Exit_Moment" : false
+
+			},
+			{
+				"Status" : "countdown 4"  ,
+				"Status_is_Array" : false,
+				"Line" : "4 . . . ",
+				"Vibe" : "Flirty",
+				"Player_Response" : true,
+				"Next_Status" : "puncture",
+				"Response_Options" : ["jesus", "sensative", "idiot"],
 				"Exit_Moment" : false
 
 			},
