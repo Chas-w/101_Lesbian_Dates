@@ -31,6 +31,7 @@ var paul_status : String
 var paul_choice : Button
 var speaker : String
 var waiting_for_progression : bool #used if there's not choice just waiting for the player to press interact
+var speaking : bool
 
 func _ready():
 	JSON_dict = _JSON_to_dictionary(JSON_file_path)
@@ -45,7 +46,10 @@ func _process(delta):
 	if (waiting_for_progression):
 		progression_icon.visible = true
 		if (Input.is_action_just_pressed("Enter")):
-			_progress_paul_response(current_dialogue.Next_Status)
+			if (current_dialogue.Player_Response):
+				_progress_paul_response(current_dialogue.Next_Status)
+			else:
+				_progress_date_dialogue(current_dialogue.Next_Status)
 			waiting_for_progression = false
 			progression_icon.visible = false
 
@@ -79,7 +83,7 @@ func _display_dialogue(disp : String, character : String, delta):
 				buffer = randf_range(.01,display_buffer)
 			else:
 				if (character == date_name):
-					if (current_dialogue.Player_Response):
+					if (current_dialogue.Response_Options != null):
 						_display_paul_options()
 					else:
 						waiting_for_progression = true

@@ -1,0 +1,102 @@
+{
+	"Paul": {
+		"Dialogue" : [
+			{
+				"Status" : "scared",
+				"Status_is_Array" : false,
+				"Line" : "Wait Kai I'm scared!",
+				"Vibe" : "Flirty",
+				"One_off" : false,
+				"Interruption" : false
+			},
+			{
+				"Status" : "just do it!",
+				"Status_is_Array" : false,
+				"Line" : "Just get it overwith!",
+				"Vibe" : "Flirty",
+				"One_off" : false,
+				"Interruption" : false
+
+			},
+			{
+				"Status" : "bad idea",
+				"Status_is_Array" : false,
+				"Line" : "I'm gonna get an infection",
+				"Vibe" : "Flirty",
+				"One_off" : false,
+				"Interruption" : false
+			},	
+			{
+				"Status" : "ouch",
+				"Status_is_Array" : false,
+				"Line" : "OWW! OUCH . . . . . . ow . . . ok it's not that bad anymore",
+				"Vibe" : "Flirty",
+				"One_off" : false,
+				"Interruption" : false
+			}	
+		]
+	},
+
+	"Date" : {
+		"Name" : "Kai",
+		"Dialogue" : [
+			{
+				"Status" : "next",
+				"Status_is_Array" : false,
+				"Line" : "ok . . . ",
+				"Vibe" : "Friendly",
+				"Player_Response" : false,
+				"Next_Status" : "countdown_5",
+				"Response_Options" : null,
+				"Exit_Moment" : false          
+			}, 
+			{
+				"Status" : "countdown_5",
+				"Status_is_Array" : false,
+				"Line" : "5 . . . ",
+				"Vibe" : "Friendly",
+				"Player_Response" : true,
+				"Next_Status" : null,
+				"Response_Options" : ["scared","just do it!","bad idea"],
+				"Exit_Moment" : false 
+			},
+			{
+				"Status" : ["scared","just do it!","bad idea"]  ,
+				"Status_is_Array" : true,
+				"Line" : "haha it'll be ok. . . 4 . . . ",
+				"Vibe" : "Flirty",
+				"Player_Response" : false,
+				"Next_Status" : "puncture",
+				"Response_Options" : null,
+				"Exit_Moment" : false
+
+			},
+			{
+				"Status" : "puncture",
+				"Status_is_Array" : false,
+				"Line" : "3!",
+				"Vibe" : "Friendly",
+				"Player_Response" : true,
+				"Next_Status" : "ouch",
+				"Response_Options" : null,
+				"Exit_Moment" : false
+			},
+			{
+				"Status" : "ouch",
+				"Status_is_Array" : false,
+				"Line" : "Ok now do me!",
+				"Vibe" : "Friendly",
+				"Player_Response" : false,
+				"Next_Status" : "null",
+				"Response_Options" : null,
+				"Exit_Moment" : true
+			}
+		]
+	},
+
+	"Vibe" : ["Crappy", "Stale", "Flirty", "Friendly", "Cool", "Standoffish"],
+
+	"Inventory" : {
+		
+	}
+}
