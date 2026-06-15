@@ -1,6 +1,7 @@
 extends Control
 
 @export_category("Setup")
+@export var ISSUE : Node2D
 @export var brain : Control
 @export var brain_spawn_loc : Node2D
 @export var JSON_file_path : String
@@ -48,7 +49,7 @@ func _process(delta):
 		if (Input.is_action_just_pressed("Enter")):
 			print(speaker)
 			if (speaker == date_name && current_dialogue.Player_Response):
-				_progress_paul_response(current_dialogue.Next_Status)
+				_progress_date_dialogue(current_dialogue.Next_Status)
 			elif ((speaker == date_name && !current_dialogue.Player_Response) || (speaker == "Paul" && (current_dialogue.One_off || current_dialogue.Interruption))):
 				print(next_status)
 				_progress_date_dialogue(next_status)
@@ -97,7 +98,6 @@ func _display_dialogue(disp : String, character : String, delta):
 				if (character == "Paul"):
 					if (!current_dialogue.One_off && !current_dialogue.Interruption):
 						_progress_date_dialogue(paul_status)
-
 
 func _progress_date_dialogue(status : String): #used to call and display next dialogue option
 	if (!display_line):

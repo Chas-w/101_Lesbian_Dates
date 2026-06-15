@@ -34,6 +34,19 @@ size = Vector2(29, 381.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pw7vx"]
 size = Vector2(416.5, 26.5)
 
+[sub_resource type="Gradient" id="Gradient_m6anw"]
+colors = PackedColorArray(0, 1, 0, 1, 1, 1, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gda5h"]
+gradient = SubResource("Gradient_m6anw")
+
+[sub_resource type="Gradient" id="Gradient_gda5h"]
+offsets = PackedFloat32Array(0, 0.5, 1)
+colors = PackedColorArray(1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_n8xr2"]
+gradient = SubResource("Gradient_gda5h")
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_h8gaa"]
 shader = ExtResource("2_pw7vx")
 shader_parameter/scale = Vector2(1, 1)
@@ -111,17 +124,6 @@ offset_bottom = -4.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ReferenceRect" type="ReferenceRect" parent="CanvasLayer/Everything/Inventory" unique_id=120062348]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 18.0
-offset_bottom = -4.0
-grow_horizontal = 2
-grow_vertical = 2
-border_width = 3.8
-
 [node name="Brain" type="Control" parent="CanvasLayer/Everything" unique_id=1848323068]
 layout_mode = 1
 anchor_left = 0.67300004
@@ -187,17 +189,6 @@ offset_bottom = 0.2399292
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ReferenceRect" type="ReferenceRect" parent="CanvasLayer/Everything/View" unique_id=1086645007]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 21.0
-offset_bottom = -4.0
-grow_horizontal = 2
-grow_vertical = 2
-border_width = 3.8
-
 [node name="Game" type="Control" parent="CanvasLayer/Everything" unique_id=749111273]
 layout_mode = 1
 anchor_right = 0.67800003
@@ -209,17 +200,18 @@ offset_bottom = -0.24801636
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ReferenceRect" type="ReferenceRect" parent="CanvasLayer/Everything/Game" unique_id=1304020511]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_bottom = 14.0
-grow_horizontal = 2
-grow_vertical = 2
-border_width = 3.8
+[node name="Paul Boob" type="Sprite2D" parent="CanvasLayer/Everything/Game" unique_id=1756754585]
+position = Vector2(374, 241)
+scale = Vector2(4.609375, 4.5)
+texture = SubResource("GradientTexture2D_gda5h")
 
-[node name="Dialogue Control" type="Control" parent="CanvasLayer/Everything/Game" unique_id=1955836158 node_paths=PackedStringArray("brain", "brain_spawn_loc", "paul_dialogue", "date_dialogue", "progression_icon")]
+[node name="Needle" type="Sprite2D" parent="CanvasLayer/Everything/Game" unique_id=1942214273]
+z_index = -1
+position = Vector2(86.00006, 241)
+scale = Vector2(2.9619396, 0.23475462)
+texture = SubResource("GradientTexture2D_n8xr2")
+
+[node name="Dialogue Control" type="Control" parent="CanvasLayer/Everything/Game" unique_id=1955836158 node_paths=PackedStringArray("ISSUE", "brain", "brain_spawn_loc", "paul_dialogue", "date_dialogue", "progression_icon")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -227,6 +219,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_eqsxp")
+ISSUE = NodePath("../../../..")
 brain = NodePath("../../Brain")
 brain_spawn_loc = NodePath("../../Brain/Spawn Location")
 JSON_file_path = "res://Data/Issue_001.json"

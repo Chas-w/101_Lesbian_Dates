@@ -7,7 +7,9 @@
 				"Line" : "Wait Kai I'm scared!",
 				"Vibe" : "Flirty",
 				"One_off" : false,
-				"Interruption" : false
+				"Interruption" : false,
+				"Queue" : null
+
 			},
 			{
 				"Status" : "just do it!",
@@ -15,7 +17,8 @@
 				"Line" : "Just get it overwith!",
 				"Vibe" : "Flirty",
 				"One_off" : false,
-				"Interruption" : false
+				"Interruption" : false,
+				"Queue" : null
 
 			},
 			{
@@ -24,7 +27,8 @@
 				"Line" : "I'm gonna get an infection",
 				"Vibe" : "Flirty",
 				"One_off" : false,
-				"Interruption" : false
+				"Interruption" : false,
+				"Queue" : null
 			},	
 			{
 				"Status" : "ouch",
@@ -32,7 +36,8 @@
 				"Line" : "OWW! OUCH . . . . . . ow . . . ok it's not that bad anymore",
 				"Vibe" : "Flirty",
 				"One_off" : false,
-				"Interruption" : false
+				"Interruption" : false,
+				"Queue" : null
 			},
 			{
 				"Status" : "jesus",
@@ -40,7 +45,8 @@
 				"Line" : "jesus christ I'm so scared",
 				"Vibe" : "Flirty",
 				"One_off" : true,
-				"Interruption" : false
+				"Interruption" : false,
+				"Queue" : null
 			},
 			{
 				"Status" : "jesus",
@@ -48,7 +54,8 @@
 				"Line" : "jesus christ I'm so scared",
 				"Vibe" : "Flirty",
 				"One_off" : true,
-				"Interruption" : false
+				"Interruption" : false,
+				"Queue" : null
 			},
 			{
 				"Status" : "sensative",
@@ -56,7 +63,8 @@
 				"Line" : "my nips are so sensative though this is gonna hurt",
 				"Vibe" : "Flirty",
 				"One_off" : true,
-				"Interruption" : false
+				"Interruption" : false,
+				"Queue" : null
 			},
 			{
 				"Status" : "idiot",
@@ -64,7 +72,8 @@
 				"Line" : "this is really stupid you know",
 				"Vibe" : "Flirty",
 				"One_off" : true,
-				"Interruption" : false
+				"Interruption" : false,
+				"Queue" : null
 			}		
 		]
 	},
@@ -80,7 +89,8 @@
 				"Player_Response" : false,
 				"Next_Status" : "countdown 5",
 				"Response_Options" : null,
-				"Exit_Moment" : false          
+				"Exit_Moment" : false,
+				"Queue" : null          
 			}, 
 			{
 				"Status" : "countdown 5",
@@ -90,7 +100,8 @@
 				"Player_Response" : true,
 				"Next_Status" : null,
 				"Response_Options" : ["scared","just do it!","bad idea"],
-				"Exit_Moment" : false 
+				"Exit_Moment" : false,
+				"Queue" : null 
 			},
 			{
 				"Status" : ["scared","just do it!","bad idea"]  ,
@@ -100,7 +111,8 @@
 				"Player_Response" : false,
 				"Next_Status" : "countdown 4",
 				"Response_Options" : null,
-				"Exit_Moment" : false
+				"Exit_Moment" : false,
+				"Queue" : null
 
 			},
 			{
@@ -111,7 +123,8 @@
 				"Player_Response" : true,
 				"Next_Status" : "puncture",
 				"Response_Options" : ["jesus", "sensative", "idiot"],
-				"Exit_Moment" : false
+				"Exit_Moment" : false,
+				"Queue" : null
 
 			},
 			{
@@ -122,7 +135,8 @@
 				"Player_Response" : true,
 				"Next_Status" : "ouch",
 				"Response_Options" : null,
-				"Exit_Moment" : false
+				"Exit_Moment" : false,
+				"Queue" : "puncture"
 			},
 			{
 				"Status" : "ouch",
@@ -132,7 +146,8 @@
 				"Player_Response" : false,
 				"Next_Status" : "null",
 				"Response_Options" : null,
-				"Exit_Moment" : true
+				"Exit_Moment" : true,
+				"Queue" : null
 			}
 		]
 	},
