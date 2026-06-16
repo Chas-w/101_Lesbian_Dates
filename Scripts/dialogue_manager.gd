@@ -49,7 +49,7 @@ func _process(delta):
 		if (Input.is_action_just_pressed("Enter")):
 			print(speaker)
 			if (speaker == date_name && current_dialogue.Player_Response):
-				_progress_date_dialogue(current_dialogue.Next_Status)
+				_progress_paul_response(current_dialogue.Next_Status)
 			elif ((speaker == date_name && !current_dialogue.Player_Response) || (speaker == "Paul" && (current_dialogue.One_off || current_dialogue.Interruption))):
 				print(next_status)
 				_progress_date_dialogue(next_status)
