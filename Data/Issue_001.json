@@ -4,76 +4,92 @@
 			{
 				"Status" : "scared",
 				"Status_is_Array" : false,
+				"Wait_For_Progression" : false,
 				"Line" : "Wait Kai I'm scared!",
 				"Vibe" : "Flirty",
 				"One_off" : false,
 				"Interruption" : false,
-				"Queue" : null
+				"Queue" : null,
+				"Queue_Async" : false
 
 			},
 			{
 				"Status" : "just do it!",
 				"Status_is_Array" : false,
+				"Wait_For_Progression" : false,
 				"Line" : "Just get it overwith!",
 				"Vibe" : "Flirty",
 				"One_off" : false,
 				"Interruption" : false,
-				"Queue" : null
+				"Queue" : null,
+				"Queue_Async" : false
 
 			},
 			{
 				"Status" : "bad idea",
 				"Status_is_Array" : false,
+				"Wait_For_Progression" : false,
 				"Line" : "I'm gonna get an infection",
 				"Vibe" : "Flirty",
 				"One_off" : false,
 				"Interruption" : false,
-				"Queue" : null
+				"Queue" : null,
+				"Queue_Async" : false
 			},	
 			{
 				"Status" : "ouch",
 				"Status_is_Array" : false,
+				"Wait_For_Progression" : false,
 				"Line" : "OWW! OUCH . . . . . . ow . . . ok it's not that bad anymore",
 				"Vibe" : "Flirty",
 				"One_off" : false,
 				"Interruption" : false,
-				"Queue" : null
+				"Queue" : null,
+				"Queue_Async" : false
 			},
 			{
 				"Status" : "jesus",
 				"Status_is_Array" : false,
+				"Wait_For_Progression" : false,
 				"Line" : "jesus christ I'm so scared",
 				"Vibe" : "Flirty",
 				"One_off" : true,
 				"Interruption" : false,
-				"Queue" : null
+				"Queue" : null,
+				"Queue_Async" : false
 			},
 			{
 				"Status" : "jesus",
 				"Status_is_Array" : false,
+				"Wait_For_Progression" : false,
 				"Line" : "jesus christ I'm so scared",
 				"Vibe" : "Flirty",
 				"One_off" : true,
 				"Interruption" : false,
-				"Queue" : null
+				"Queue" : null,
+				"Queue_Async" : false
 			},
 			{
 				"Status" : "sensative",
 				"Status_is_Array" : false,
+				"Wait_For_Progression" : false,
 				"Line" : "my nips are so sensative though this is gonna hurt",
 				"Vibe" : "Flirty",
 				"One_off" : true,
 				"Interruption" : false,
-				"Queue" : null
+				"Queue" : null,
+				"Queue_Async" : false
 			},
 			{
 				"Status" : "idiot",
 				"Status_is_Array" : false,
+				"Wait_For_Progression" : false,
 				"Line" : "this is really stupid you know",
 				"Vibe" : "Flirty",
 				"One_off" : true,
 				"Interruption" : false,
-				"Queue" : null
+				"Queue" : null,
+				"Queue_Async" : false
 			}		
 		]
 	},
@@ -84,70 +100,82 @@
 			{
 				"Status" : "next",
 				"Status_is_Array" : false,
+				"Wait_For_Progression" : true,
 				"Line" : "ok . . . ",
 				"Vibe" : "Friendly",
 				"Player_Response" : false,
 				"Next_Status" : "countdown 5",
 				"Response_Options" : null,
 				"Exit_Moment" : false,
-				"Queue" : null          
+				"Queue" : null,
+				"Queue_Async" : false          
 			}, 
 			{
 				"Status" : "countdown 5",
 				"Status_is_Array" : false,
+				"Wait_For_Progression" : false,
 				"Line" : "5 . . . ",
 				"Vibe" : "Friendly",
 				"Player_Response" : true,
 				"Next_Status" : null,
 				"Response_Options" : ["scared","just do it!","bad idea"],
 				"Exit_Moment" : false,
-				"Queue" : null 
+				"Queue" : null ,
+				"Queue_Async" : false
 			},
 			{
 				"Status" : ["scared","just do it!","bad idea"]  ,
 				"Status_is_Array" : true,
+				"Wait_For_Progression" : false,
 				"Line" : "haha it'll be ok . . . ",
 				"Vibe" : "Flirty",
 				"Player_Response" : false,
 				"Next_Status" : "countdown 4",
 				"Response_Options" : null,
 				"Exit_Moment" : false,
-				"Queue" : null
+				"Queue" : null,
+				"Queue_Async" : false
 
 			},
 			{
 				"Status" : "countdown 4"  ,
 				"Status_is_Array" : false,
+				"Wait_For_Progression" : false,
 				"Line" : "4 . . . ",
 				"Vibe" : "Flirty",
 				"Player_Response" : true,
 				"Next_Status" : "puncture",
 				"Response_Options" : ["jesus", "sensative", "idiot"],
 				"Exit_Moment" : false,
-				"Queue" : null
+				"Queue" : null,
+				"Queue_Async" : false
 
 			},
 			{
-				"Status" : "puncture",
-				"Status_is_Array" : false,
+				"Status" : ["puncture", "jesus", "sensative", "idiot"],
+				"Status_is_Array" : true,
+				"Wait_For_Progression" : false,
 				"Line" : "3!",
 				"Vibe" : "Friendly",
 				"Player_Response" : true,
 				"Next_Status" : "ouch",
 				"Response_Options" : null,
 				"Exit_Moment" : false,
-				"Queue" : "puncture"
+				"Queue" : "Kai_Pierce_Paul",
+				"Queue_Async" : true
 			},
 			{
 				"Status" : "ouch",
 				"Status_is_Array" : false,
+				"Wait_For_Progression" : false,
 				"Line" : "Ok now do me!",
 				"Vibe" : "Friendly",
 				"Player_Response" : false,
 				"Next_Status" : "null",
 				"Response_Options" : null,
 				"Exit_Moment" : true,
-				"Queue" : null
+				"Queue" : null,
+				"Queue_Async" : false
 			}
 		]
 	},

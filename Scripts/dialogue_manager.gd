@@ -47,11 +47,9 @@ func _process(delta):
 	if (waiting_for_progression):
 		progression_icon.visible = true
 		if (Input.is_action_just_pressed("Enter")):
-			print(speaker)
 			if (speaker == date_name && current_dialogue.Player_Response):
 				_progress_paul_response(current_dialogue.Next_Status)
 			elif ((speaker == date_name && !current_dialogue.Player_Response) || (speaker == "Paul" && (current_dialogue.One_off || current_dialogue.Interruption))):
-				print(next_status)
 				_progress_date_dialogue(next_status)
 			waiting_for_progression = false
 			progression_icon.visible = false
@@ -85,19 +83,33 @@ func _display_dialogue(disp : String, character : String, delta):
 				#play audio
 				buffer = randf_range(.01,display_buffer)
 			else:
-				if (character == date_name):
-					if (current_dialogue.Next_Status != null):
-							next_status = current_dialogue.Next_Status
-							waiting_for_progression = true
-					if (current_dialogue.Response_Options != null):
-						_display_paul_options()
-					else:
-						waiting_for_progression = true
 				display_line = false
 				setup_display = false
-				if (character == "Paul"):
-					if (!current_dialogue.One_off && !current_dialogue.Interruption):
-						_progress_date_dialogue(paul_status)
+				if (current_dialogue.Queue == null):
+					if (current_dialogue.Wait_For_Progression):
+							next_status = current_dialogue.Next_Status
+							waiting_for_progression = true
+					else:
+						if (character == date_name):
+							if (current_dialogue.Response_Options != null):
+								_display_paul_options()
+							else:
+								if(current_dialogue.Player_Response):
+									_progress_paul_response(current_dialogue.Next_Status)
+								else:
+									_progress_date_dialogue(current_dialogue.Next_Status)
+								pass
+						if (character == "Paul"):
+							#if (!current_dialogue.One_off && !current_dialogue.Interruption):
+							_progress_date_dialogue(paul_status)
+				else:
+					if (!current_dialogue.Queue_Async):
+						pass
+					else:
+						ISSUE._play_anim(current_dialogue.Queue)
+						if (character == date_name):
+							if (current_dialogue.Player_Response && !current_dialogue.Wait_For_Progression):
+								_progress_paul_response(current_dialogue.Next_Status)
 
 func _progress_date_dialogue(status : String): #used to call and display next dialogue option
 	if (!display_line):

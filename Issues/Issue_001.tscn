@@ -14,39 +14,6 @@
 [ext_resource type="Texture2D" uid="uid://cb6oxc8guiq0k" path="res://Imported Textures/black_bubble.png" id="8_pppn2"]
 [ext_resource type="Texture2D" uid="uid://b3kgil3r5hg1x" path="res://Imported Textures/brain.png" id="9_n8xr2"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ykgsn"]
-shader = ExtResource("2_pw7vx")
-shader_parameter/scale = Vector2(1, 1)
-shader_parameter/strength = 0.15
-shader_parameter/fps = 4.0
-shader_parameter/noise = ExtResource("3_ykgsn")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_c5erv"]
-shader = ExtResource("2_pw7vx")
-shader_parameter/scale = Vector2(3, 3)
-shader_parameter/strength = 0.25
-shader_parameter/fps = 2.0
-shader_parameter/noise = ExtResource("3_ykgsn")
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2eo31"]
-size = Vector2(29, 381.5)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pw7vx"]
-size = Vector2(416.5, 26.5)
-
-[sub_resource type="Gradient" id="Gradient_m6anw"]
-colors = PackedColorArray(0, 1, 0, 1, 1, 1, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_gda5h"]
-gradient = SubResource("Gradient_m6anw")
-
-[sub_resource type="Gradient" id="Gradient_gda5h"]
-offsets = PackedFloat32Array(0, 0.5, 1)
-colors = PackedColorArray(1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_n8xr2"]
-gradient = SubResource("Gradient_gda5h")
-
 [sub_resource type="Animation" id="Animation_m6anw"]
 resource_name = "Kai_Pierce_Paul"
 length = 0.2
@@ -85,6 +52,39 @@ _data = {
 &"RESET": SubResource("Animation_gda5h")
 }
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ykgsn"]
+shader = ExtResource("2_pw7vx")
+shader_parameter/scale = Vector2(1, 1)
+shader_parameter/strength = 0.15
+shader_parameter/fps = 4.0
+shader_parameter/noise = ExtResource("3_ykgsn")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c5erv"]
+shader = ExtResource("2_pw7vx")
+shader_parameter/scale = Vector2(3, 3)
+shader_parameter/strength = 0.25
+shader_parameter/fps = 2.0
+shader_parameter/noise = ExtResource("3_ykgsn")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2eo31"]
+size = Vector2(29, 381.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pw7vx"]
+size = Vector2(416.5, 26.5)
+
+[sub_resource type="Gradient" id="Gradient_m6anw"]
+colors = PackedColorArray(0, 1, 0, 1, 1, 1, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gda5h"]
+gradient = SubResource("Gradient_m6anw")
+
+[sub_resource type="Gradient" id="Gradient_gda5h"]
+offsets = PackedFloat32Array(0, 0.5, 1)
+colors = PackedColorArray(1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_n8xr2"]
+gradient = SubResource("Gradient_gda5h")
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_h8gaa"]
 shader = ExtResource("2_pw7vx")
 shader_parameter/scale = Vector2(1, 1)
@@ -95,8 +95,13 @@ shader_parameter/noise = ExtResource("3_ykgsn")
 [sub_resource type="Theme" id="Theme_r00si"]
 RichTextLabel/icons/horizontal_rule = ExtResource("8_pppn2")
 
-[node name="Issue 001" type="Node2D" unique_id=555184923]
+[node name="Issue 001" type="Node2D" unique_id=555184923 node_paths=PackedStringArray("dialogue_controller", "anim_player")]
 script = ExtResource("1_pw7vx")
+dialogue_controller = NodePath("CanvasLayer/Everything/Game/Dialogue Control")
+anim_player = NodePath("AnimationPlayer")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=991101189]
+libraries/ = SubResource("AnimationLibrary_gda5h")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1037097185]
 
@@ -249,10 +254,6 @@ z_index = -1
 position = Vector2(86.00006, 241)
 scale = Vector2(2.9619396, 0.23475462)
 texture = SubResource("GradientTexture2D_n8xr2")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Everything/Game/Needle" unique_id=991101189]
-root_node = NodePath("../../../../..")
-libraries/ = SubResource("AnimationLibrary_gda5h")
 
 [node name="Dialogue Control" type="Control" parent="CanvasLayer/Everything/Game" unique_id=1955836158 node_paths=PackedStringArray("ISSUE", "brain", "brain_spawn_loc", "paul_dialogue", "date_dialogue", "progression_icon")]
 layout_mode = 1
