@@ -64,7 +64,7 @@ func _display_date_dialogue(disp : String, character : String, delta):
 		date_buffer = randf_range(.01,display_buffer)
 		date_split_sentence = disp.split(" ") 
 		date_word_in_sentence = -1
-		date_current_sentence = " "
+		date_current_sentence  = " "
 		if (character == date_name):
 			date_dialogue.text == " "
 		if (character == "Paul"):
