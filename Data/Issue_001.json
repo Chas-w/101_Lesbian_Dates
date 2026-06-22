@@ -44,8 +44,8 @@
 				"Vibe" : "Flirty",
 				"One_off" : false,
 				"Interruption" : false,
-				"Queue" : null,
-				"Queue_Async" : false
+				"Queue" : "boob_game",
+				"Queue_Async" : true
 			},
 			{
 				"Status" : "jesus",
