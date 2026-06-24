@@ -7,6 +7,7 @@ func _ready():
 	pass # Replace with function body.
 
 
+#region In every issue
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
@@ -17,3 +18,8 @@ func _play_anim(anim : String):
 	
 func _wait_for_gameplay(gameplay, next_status):
 	pass #if can't progress until gameplay has been finished
+#endregion
+
+func _play_game(minigame : String):
+	print(minigame)
+	pass

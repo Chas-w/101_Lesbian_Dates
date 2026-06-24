@@ -100,12 +100,25 @@ func _display_date_dialogue(disp : String, delta):
 							else:
 								_progress_date_dialogue(current_date_dialogue.Next_Status)
 				else:
-					if (!current_date_dialogue.Queue_Async):
-						pass
+					#if queue
+					if(current_date_dialogue.Queue_Game):
+						if (!current_date_dialogue.Queue_Async):
+							pass
+						else:
+							if(current_date_dialogue.Player_Response):
+								_progress_paul_response(current_date_dialogue.Next_Status)
+							else:
+								_progress_date_dialogue(current_date_dialogue.Next_Status)
+							ISSUE._play_game(current_date_dialogue.Queue)
 					else:
-						ISSUE._play_anim(current_date_dialogue.Queue)
-						if (current_date_dialogue.Player_Response && !current_date_dialogue.Wait_For_Progression):
-							_progress_paul_response(current_date_dialogue.Next_Status)
+						if (!current_date_dialogue.Queue_Async):
+							pass
+						else:
+							if(current_date_dialogue.Player_Response):
+								_progress_paul_response(current_date_dialogue.Next_Status)
+							else:
+								_progress_date_dialogue(current_date_dialogue.Next_Status)
+							ISSUE._play_anim(current_date_dialogue.Queue)
 
 func _display_paul_dialogue(disp : String, delta):
 	if (!setup_paul_display):
@@ -136,14 +149,27 @@ func _display_paul_dialogue(disp : String, delta):
 					else:
 						_progress_date_dialogue(paul_status)
 				else:
-					if (!current_paul_dialogue.Queue_Async):
-						pass
+				#if queue
+					if(current_paul_dialogue.Queue_Game):
+						if (!current_paul_dialogue.Queue_Async):
+							pass
+						else:
+							if (current_paul_dialogue.Wait_For_Progression):
+									next_status = current_paul_dialogue.Next_Status
+									waiting_for_progression = true
+							else:
+								_progress_date_dialogue(paul_status)
+							ISSUE._play_game(current_paul_dialogue.Queue)
 					else:
-						ISSUE._play_anim(current_paul_dialogue.Queue)
-						#if (character == date_name):
-							#if (current_dialogue.Player_Response && !current_dialogue.Wait_For_Progression):
-								#_progress_paul_response(current_dialogue.Next_Status)
-
+						if (!current_paul_dialogue.Queue_Async):
+							pass
+						else:
+							if (current_paul_dialogue.Wait_For_Progression):
+									next_status = current_paul_dialogue.Next_Status
+									waiting_for_progression = true
+							else:
+								_progress_date_dialogue(paul_status)
+							ISSUE._play_anim(current_paul_dialogue.Queue)
 
 func _progress_date_dialogue(status : String): #used to call and display next dialogue option
 	if (!display_date_line):

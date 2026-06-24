@@ -10,6 +10,7 @@
 				"One_off" : false,
 				"Interruption" : false,
 				"Queue" : null,
+				"Queue_Game" : false,				
 				"Queue_Async" : false
 
 			},
@@ -22,6 +23,7 @@
 				"One_off" : false,
 				"Interruption" : false,
 				"Queue" : null,
+				"Queue_Game" : false,
 				"Queue_Async" : false
 
 			},
@@ -34,6 +36,7 @@
 				"One_off" : false,
 				"Interruption" : false,
 				"Queue" : null,
+				"Queue_Game" : false,
 				"Queue_Async" : false
 			},	
 			{
@@ -44,18 +47,8 @@
 				"Vibe" : "Flirty",
 				"One_off" : false,
 				"Interruption" : false,
-				"Queue" : "boob_game",
-				"Queue_Async" : true
-			},
-			{
-				"Status" : "jesus",
-				"Status_is_Array" : false,
-				"Wait_For_Progression" : false,
-				"Line" : "jesus christ I'm so scared",
-				"Vibe" : "Flirty",
-				"One_off" : true,
-				"Interruption" : false,
 				"Queue" : null,
+				"Queue_Game" : false,
 				"Queue_Async" : false
 			},
 			{
@@ -67,6 +60,19 @@
 				"One_off" : true,
 				"Interruption" : false,
 				"Queue" : null,
+				"Queue_Game" : false,
+				"Queue_Async" : false
+			},
+			{
+				"Status" : "jesus",
+				"Status_is_Array" : false,
+				"Wait_For_Progression" : false,
+				"Line" : "jesus christ I'm so scared",
+				"Vibe" : "Flirty",
+				"One_off" : true,
+				"Interruption" : false,
+				"Queue" : null,
+				"Queue_Game" : false,
 				"Queue_Async" : false
 			},
 			{
@@ -78,6 +84,7 @@
 				"One_off" : true,
 				"Interruption" : false,
 				"Queue" : null,
+				"Queue_Game" : false,
 				"Queue_Async" : false
 			},
 			{
@@ -89,6 +96,7 @@
 				"One_off" : true,
 				"Interruption" : false,
 				"Queue" : null,
+				"Queue_Game" : false,
 				"Queue_Async" : false
 			}		
 		]
@@ -108,6 +116,7 @@
 				"Response_Options" : null,
 				"Exit_Moment" : false,
 				"Queue" : null,
+				"Queue_Game" : false,
 				"Queue_Async" : false          
 			}, 
 			{
@@ -120,7 +129,8 @@
 				"Next_Status" : null,
 				"Response_Options" : ["scared","just do it!","bad idea"],
 				"Exit_Moment" : false,
-				"Queue" : null ,
+				"Queue" : null,
+				"Queue_Game" : false,
 				"Queue_Async" : false
 			},
 			{
@@ -134,6 +144,7 @@
 				"Response_Options" : null,
 				"Exit_Moment" : false,
 				"Queue" : null,
+				"Queue_Game" : false,
 				"Queue_Async" : false
 
 			},
@@ -148,6 +159,7 @@
 				"Response_Options" : ["jesus", "sensative", "idiot"],
 				"Exit_Moment" : false,
 				"Queue" : null,
+				"Queue_Game" : false,
 				"Queue_Async" : false
 
 			},
@@ -162,6 +174,7 @@
 				"Response_Options" : null,
 				"Exit_Moment" : false,
 				"Queue" : "Kai_Pierce_Paul",
+				"Queue_Game" : false,
 				"Queue_Async" : true
 			},
 			{
@@ -174,8 +187,9 @@
 				"Next_Status" : "null",
 				"Response_Options" : null,
 				"Exit_Moment" : true,
-				"Queue" : null,
-				"Queue_Async" : false
+				"Queue" : "boob_game",
+				"Queue_Game" : true,
+				"Queue_Async" : true
 			}
 		]
 	},

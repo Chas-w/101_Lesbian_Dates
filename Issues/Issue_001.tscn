@@ -13,6 +13,7 @@
 [ext_resource type="Theme" uid="uid://bod5h5q0bmciw" path="res://Themes/comic_theme.tres" id="8_h8gaa"]
 [ext_resource type="Texture2D" uid="uid://cb6oxc8guiq0k" path="res://Imported Textures/black_bubble.png" id="8_pppn2"]
 [ext_resource type="Texture2D" uid="uid://b3kgil3r5hg1x" path="res://Imported Textures/brain.png" id="9_n8xr2"]
+[ext_resource type="Script" uid="uid://bsmds4jycqusj" path="res://Scripts/minigames/boob_game.gd" id="10_gda5h"]
 
 [sub_resource type="Animation" id="Animation_m6anw"]
 resource_name = "Kai_Pierce_Paul"
@@ -242,6 +243,7 @@ offset_right = -0.056030273
 offset_bottom = -0.24801636
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("10_gda5h")
 
 [node name="Paul Boob" type="Sprite2D" parent="CanvasLayer/Everything/Game" unique_id=1756754585]
 z_index = -1
