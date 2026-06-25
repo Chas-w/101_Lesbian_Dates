@@ -22,7 +22,7 @@ step = 0.0333333
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/Everything/Game/Needle:position")
+tracks/0/path = NodePath("CanvasLayer/Everything/Boob Game/Needle:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -37,7 +37,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/Everything/Game/Needle:position")
+tracks/0/path = NodePath("CanvasLayer/Everything/Boob Game/Needle:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -53,18 +53,18 @@ _data = {
 &"RESET": SubResource("Animation_gda5h")
 }
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ykgsn"]
-shader = ExtResource("2_pw7vx")
-shader_parameter/scale = Vector2(1, 1)
-shader_parameter/strength = 0.15
-shader_parameter/fps = 4.0
-shader_parameter/noise = ExtResource("3_ykgsn")
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_c5erv"]
 shader = ExtResource("2_pw7vx")
 shader_parameter/scale = Vector2(3, 3)
 shader_parameter/strength = 0.25
 shader_parameter/fps = 2.0
+shader_parameter/noise = ExtResource("3_ykgsn")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ykgsn"]
+shader = ExtResource("2_pw7vx")
+shader_parameter/scale = Vector2(1, 1)
+shader_parameter/strength = 0.15
+shader_parameter/fps = 4.0
 shader_parameter/noise = ExtResource("3_ykgsn")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2eo31"]
@@ -74,10 +74,28 @@ size = Vector2(29, 381.5)
 size = Vector2(416.5, 26.5)
 
 [sub_resource type="Gradient" id="Gradient_m6anw"]
-colors = PackedColorArray(0, 1, 0, 1, 1, 1, 0, 1)
+colors = PackedColorArray(0, 1, 0.92156863, 1, 0.39215687, 0.32941177, 0.8901961, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_gda5h"]
 gradient = SubResource("Gradient_m6anw")
+
+[sub_resource type="Gradient" id="Gradient_n8xr2"]
+colors = PackedColorArray(0.68235296, 0.4509804, 1, 1, 1, 0.7294118, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_fs3k7"]
+gradient = SubResource("Gradient_n8xr2")
+
+[sub_resource type="Gradient" id="Gradient_fs3k7"]
+colors = PackedColorArray(0.7176471, 0, 0, 1, 1, 0.21176471, 0.4, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ts13j"]
+gradient = SubResource("Gradient_fs3k7")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gda5h"]
+size = Vector2(68, 20.47089)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n8xr2"]
+size = Vector2(74, 34.800423)
 
 [sub_resource type="Gradient" id="Gradient_gda5h"]
 offsets = PackedFloat32Array(0, 0.5, 1)
@@ -85,6 +103,8 @@ colors = PackedColorArray(1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_n8xr2"]
 gradient = SubResource("Gradient_gda5h")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fs3k7"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_h8gaa"]
 shader = ExtResource("2_pw7vx")
@@ -98,13 +118,49 @@ RichTextLabel/icons/horizontal_rule = ExtResource("8_pppn2")
 
 [node name="Issue 001" type="Node2D" unique_id=555184923 node_paths=PackedStringArray("dialogue_controller", "anim_player")]
 script = ExtResource("1_pw7vx")
-dialogue_controller = NodePath("CanvasLayer/Everything/Game/Dialogue Control")
+dialogue_controller = NodePath("CanvasLayer/Everything/Boob Game/Dialogue Control")
 anim_player = NodePath("AnimationPlayer")
+minigames = {
+"boob_game": NodePath("CanvasLayer/Everything/Boob Game")
+}
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=991101189]
 libraries/ = SubResource("AnimationLibrary_gda5h")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1037097185]
+
+[node name="Backgrounds" type="Node2D" parent="CanvasLayer" unique_id=1140094367]
+
+[node name="Inventory Background" type="Sprite2D" parent="CanvasLayer/Backgrounds" unique_id=1082272488]
+z_index = -6
+material = SubResource("ShaderMaterial_c5erv")
+position = Vector2(398.78052, 422.63196)
+rotation = -1.5707964
+scale = Vector2(0.7986351, 0.917253)
+texture = ExtResource("7_m6anw")
+
+[node name="View Background" type="Sprite2D" parent="CanvasLayer/Backgrounds" unique_id=1621940621]
+z_index = -3
+material = SubResource("ShaderMaterial_c5erv")
+position = Vector2(962.5182, 483.0421)
+rotation = -1.5707964
+scale = Vector2(0.532725, 0.4221133)
+texture = ExtResource("8_gda5h")
+
+[node name="Brain Background" type="Sprite2D" parent="CanvasLayer/Backgrounds" unique_id=14045569]
+z_index = -4
+material = SubResource("ShaderMaterial_c5erv")
+position = Vector2(1329, 281)
+scale = Vector2(1.477876, 1.0031469)
+texture = ExtResource("9_n8xr2")
+
+[node name="Background Sprite" type="Sprite2D" parent="CanvasLayer/Backgrounds" unique_id=1775850454]
+z_index = -6
+material = SubResource("ShaderMaterial_c5erv")
+position = Vector2(391.47296, 236.17343)
+rotation = -1.5707964
+scale = Vector2(1.2455077, 1.1688673)
+texture = ExtResource("7_c5erv")
 
 [node name="Border Sprite" type="Sprite2D" parent="CanvasLayer" unique_id=2001516106]
 material = SubResource("ShaderMaterial_ykgsn")
@@ -116,36 +172,6 @@ texture = ExtResource("3_pw7vx")
 z_index = -1
 material = SubResource("ShaderMaterial_ykgsn")
 texture = ExtResource("5_r00si")
-
-[node name="Background Sprite" type="Sprite2D" parent="CanvasLayer" unique_id=1775850454]
-z_index = -4
-material = SubResource("ShaderMaterial_c5erv")
-position = Vector2(391.47296, 236.17343)
-rotation = -1.5707964
-scale = Vector2(1.2455077, 1.1688673)
-texture = ExtResource("7_c5erv")
-
-[node name="Inventory Background" type="Sprite2D" parent="CanvasLayer/Background Sprite" unique_id=1082272488]
-z_index = -5
-material = SubResource("ShaderMaterial_c5erv")
-position = Vector2(-149.70482, 6.251831)
-scale = Vector2(0.6412125, 0.78473663)
-texture = ExtResource("7_m6anw")
-
-[node name="View Background" type="Sprite2D" parent="CanvasLayer/Background Sprite" unique_id=1621940621]
-z_index = -5
-material = SubResource("ShaderMaterial_c5erv")
-position = Vector2(-198.20729, 488.5458)
-scale = Vector2(0.42771712, 0.3611302)
-texture = ExtResource("8_gda5h")
-
-[node name="View Background2" type="Sprite2D" parent="CanvasLayer/Background Sprite" unique_id=14045569]
-z_index = -7
-material = SubResource("ShaderMaterial_c5erv")
-position = Vector2(-35.990616, 483.15674)
-rotation = 1.5707964
-scale = Vector2(1.2643658, 0.80541205)
-texture = ExtResource("9_n8xr2")
 
 [node name="Everything" type="Control" parent="CanvasLayer" unique_id=1847136715]
 layout_mode = 3
@@ -233,7 +259,7 @@ offset_bottom = 0.2399292
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Game" type="Control" parent="CanvasLayer/Everything" unique_id=749111273]
+[node name="Boob Game" type="Control" parent="CanvasLayer/Everything" unique_id=749111273 node_paths=PackedStringArray("kai_boob", "paul_boob", "needle", "needle_max_pos", "needle_min_pos", "needle_start_pos", "pierce_pos")]
 layout_mode = 1
 anchor_right = 0.67800003
 anchor_bottom = 0.70100003
@@ -244,20 +270,86 @@ offset_bottom = -0.24801636
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("10_gda5h")
+kai_boob = NodePath("Kai Boob")
+paul_boob = NodePath("Paul Boob")
+needle = NodePath("Needle")
+needle_max_pos = NodePath("Needle Max Pos")
+needle_min_pos = NodePath("Needle Min Pos")
+needle_start_pos = NodePath("Paul Needle Pos")
+pierce_pos = NodePath("Pierce Pos")
 
-[node name="Paul Boob" type="Sprite2D" parent="CanvasLayer/Everything/Game" unique_id=1756754585]
-z_index = -1
+[node name="Paul Needle Pos" type="Node2D" parent="CanvasLayer/Everything/Boob Game" unique_id=1150711778]
+position = Vector2(748, 240)
+
+[node name="Pierce Pos" type="Node2D" parent="CanvasLayer/Everything/Boob Game" unique_id=1799024928]
+position = Vector2(25, 238)
+
+[node name="Needle Max Pos" type="Node2D" parent="CanvasLayer/Everything/Boob Game" unique_id=1655223073]
+position = Vector2(748, 28)
+
+[node name="Needle Min Pos" type="Node2D" parent="CanvasLayer/Everything/Boob Game" unique_id=406101330]
+position = Vector2(748, 420)
+
+[node name="Paul Boob" type="Sprite2D" parent="CanvasLayer/Everything/Boob Game" unique_id=1756754585]
+z_index = -6
 position = Vector2(374, 241)
 scale = Vector2(4.609375, 4.5)
 texture = SubResource("GradientTexture2D_gda5h")
 
-[node name="Needle" type="Sprite2D" parent="CanvasLayer/Everything/Game" unique_id=1942214273]
-z_index = -1
+[node name="Kai Boob" type="Sprite2D" parent="CanvasLayer/Everything/Boob Game" unique_id=601064654]
+visible = false
+z_index = -6
+position = Vector2(374, 241)
+scale = Vector2(4.609375, 4.5)
+texture = SubResource("GradientTexture2D_fs3k7")
+
+[node name="Kai Nip" type="Sprite2D" parent="CanvasLayer/Everything/Boob Game/Kai Boob" unique_id=1237938425]
+z_index = 1
+scale = Vector2(0.21694915, 0.21711111)
+texture = SubResource("GradientTexture2D_ts13j")
+
+[node name="Ok Shot2" type="Area2D" parent="CanvasLayer/Everything/Boob Game/Kai Boob" unique_id=1248132498 groups=["ok"]]
+scale = Vector2(0.21694915, 0.21711111)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Everything/Boob Game/Kai Boob/Ok Shot2" unique_id=685193005]
+position = Vector2(0, -25.588593)
+scale = Vector2(0.925, 1)
+shape = SubResource("RectangleShape2D_gda5h")
+debug_color = Color(0.8039216, 0.003921569, 0.99607843, 0.41960785)
+
+[node name="Great Shot" type="Area2D" parent="CanvasLayer/Everything/Boob Game/Kai Boob" unique_id=1700653339 groups=["great"]]
+position = Vector2(0, 6)
+scale = Vector2(0.21694915, 0.21711111)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Everything/Boob Game/Kai Boob/Great Shot" unique_id=2087913558]
+position = Vector2(0, -26.61203)
+scale = Vector2(0.925, 1)
+shape = SubResource("RectangleShape2D_n8xr2")
+
+[node name="Ok Shot" type="Area2D" parent="CanvasLayer/Everything/Boob Game/Kai Boob" unique_id=356486744 groups=["ok"]]
+position = Vector2(0, 11.555555)
+scale = Vector2(0.21694915, 0.21711111)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Everything/Boob Game/Kai Boob/Ok Shot" unique_id=1838276002]
+position = Vector2(0, -25.588593)
+scale = Vector2(0.925, 1)
+shape = SubResource("RectangleShape2D_gda5h")
+debug_color = Color(0.8056882, 0.002367263, 0.99639434, 0.41960785)
+
+[node name="Needle" type="Sprite2D" parent="CanvasLayer/Everything/Boob Game" unique_id=1942214273]
+z_index = -5
 position = Vector2(86.00006, 241)
 scale = Vector2(2.9619396, 0.23475462)
 texture = SubResource("GradientTexture2D_n8xr2")
 
-[node name="Dialogue Control" type="Control" parent="CanvasLayer/Everything/Game" unique_id=1955836158 node_paths=PackedStringArray("ISSUE", "brain", "brain_spawn_loc", "paul_dialogue", "date_dialogue", "progression_icon")]
+[node name="Area2D" type="Area2D" parent="CanvasLayer/Everything/Boob Game/Needle" unique_id=990897586]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Everything/Boob Game/Needle/Area2D" unique_id=1984309638]
+scale = Vector2(0.99999994, 1)
+shape = SubResource("RectangleShape2D_fs3k7")
+debug_color = Color(0.3372549, 0.8235294, 0, 0.41960785)
+
+[node name="Dialogue Control" type="Control" parent="CanvasLayer/Everything/Boob Game" unique_id=1955836158 node_paths=PackedStringArray("ISSUE", "brain", "brain_spawn_loc", "paul_dialogue", "date_dialogue", "progression_icon")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -274,7 +366,7 @@ date_dialogue = NodePath("Date/Panel/RichTextLabel")
 progression_icon = NodePath("Awaiting Progression Icon")
 display_buffer = 0.46
 
-[node name="Paul" type="Control" parent="CanvasLayer/Everything/Game/Dialogue Control" unique_id=21979319]
+[node name="Paul" type="Control" parent="CanvasLayer/Everything/Boob Game/Dialogue Control" unique_id=21979319]
 layout_mode = 1
 anchor_left = 0.67800003
 anchor_top = 0.8
@@ -285,7 +377,7 @@ offset_top = -41.399994
 offset_right = 1.973938
 offset_bottom = -41.22003
 
-[node name="Panel" type="Panel" parent="CanvasLayer/Everything/Game/Dialogue Control/Paul" unique_id=1998781770]
+[node name="Panel" type="Panel" parent="CanvasLayer/Everything/Boob Game/Dialogue Control/Paul" unique_id=1998781770]
 material = SubResource("ShaderMaterial_h8gaa")
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 1
@@ -299,7 +391,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("8_h8gaa")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Everything/Game/Dialogue Control/Paul/Panel" unique_id=516117115]
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Everything/Boob Game/Dialogue Control/Paul/Panel" unique_id=516117115]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.11400001
@@ -316,7 +408,7 @@ theme = SubResource("Theme_r00si")
 text = "Paul Dialogue"
 fit_content = true
 
-[node name="Date" type="Control" parent="CanvasLayer/Everything/Game/Dialogue Control" unique_id=223196245]
+[node name="Date" type="Control" parent="CanvasLayer/Everything/Boob Game/Dialogue Control" unique_id=223196245]
 layout_mode = 1
 anchor_left = 0.048
 anchor_top = 0.116000004
@@ -327,7 +419,7 @@ offset_top = -0.08000183
 offset_right = 0.24797058
 offset_bottom = -0.103012085
 
-[node name="Panel" type="Panel" parent="CanvasLayer/Everything/Game/Dialogue Control/Date" unique_id=526484516]
+[node name="Panel" type="Panel" parent="CanvasLayer/Everything/Boob Game/Dialogue Control/Date" unique_id=526484516]
 material = SubResource("ShaderMaterial_h8gaa")
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 1
@@ -341,7 +433,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("8_h8gaa")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Everything/Game/Dialogue Control/Date/Panel" unique_id=215208666]
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Everything/Boob Game/Dialogue Control/Date/Panel" unique_id=215208666]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -355,8 +447,10 @@ grow_vertical = 2
 text = "Date Dialogue"
 fit_content = true
 
-[node name="Awaiting Progression Icon" type="Sprite2D" parent="CanvasLayer/Everything/Game/Dialogue Control" unique_id=1293916372]
+[node name="Awaiting Progression Icon" type="Sprite2D" parent="CanvasLayer/Everything/Boob Game/Dialogue Control" unique_id=1293916372]
 visible = false
 position = Vector2(694.5, 39)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("2_jubba")
+
+[connection signal="area_entered" from="CanvasLayer/Everything/Boob Game/Needle/Area2D" to="CanvasLayer/Everything/Boob Game" method="_on_area_2d_area_entered"]
