@@ -92,10 +92,10 @@ colors = PackedColorArray(0.7176471, 0, 0, 1, 1, 0.21176471, 0.4, 1)
 gradient = SubResource("Gradient_fs3k7")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gda5h"]
-size = Vector2(68, 20.47089)
+size = Vector2(68, 20.470879)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n8xr2"]
-size = Vector2(74, 34.800423)
+size = Vector2(74, 40.9416)
 
 [sub_resource type="Gradient" id="Gradient_gda5h"]
 offsets = PackedFloat32Array(0, 0.5, 1)
@@ -259,7 +259,7 @@ offset_bottom = 0.2399292
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Boob Game" type="Control" parent="CanvasLayer/Everything" unique_id=749111273 node_paths=PackedStringArray("kai_boob", "paul_boob", "needle", "needle_max_pos", "needle_min_pos", "needle_start_pos", "pierce_pos")]
+[node name="Boob Game" type="Control" parent="CanvasLayer/Everything" unique_id=749111273 node_paths=PackedStringArray("dialogue_manager", "kai_boob", "paul_boob", "needle", "needle_max_pos", "needle_min_pos", "needle_start_pos", "pierce_pos")]
 layout_mode = 1
 anchor_right = 0.67800003
 anchor_bottom = 0.70100003
@@ -270,6 +270,7 @@ offset_bottom = -0.24801636
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("10_gda5h")
+dialogue_manager = NodePath("Dialogue Control")
 kai_boob = NodePath("Kai Boob")
 paul_boob = NodePath("Paul Boob")
 needle = NodePath("Needle")
@@ -309,29 +310,30 @@ scale = Vector2(0.21694915, 0.21711111)
 texture = SubResource("GradientTexture2D_ts13j")
 
 [node name="Ok Shot2" type="Area2D" parent="CanvasLayer/Everything/Boob Game/Kai Boob" unique_id=1248132498 groups=["ok"]]
+position = Vector2(0, 0.44444445)
 scale = Vector2(0.21694915, 0.21711111)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Everything/Boob Game/Kai Boob/Ok Shot2" unique_id=685193005]
-position = Vector2(0, -25.588593)
+position = Vector2(0, -20.47084)
 scale = Vector2(0.925, 1)
 shape = SubResource("RectangleShape2D_gda5h")
 debug_color = Color(0.8039216, 0.003921569, 0.99607843, 0.41960785)
 
 [node name="Great Shot" type="Area2D" parent="CanvasLayer/Everything/Boob Game/Kai Boob" unique_id=1700653339 groups=["great"]]
-position = Vector2(0, 6)
+position = Vector2(0, 6.4444447)
 scale = Vector2(0.21694915, 0.21711111)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Everything/Boob Game/Kai Boob/Great Shot" unique_id=2087913558]
-position = Vector2(0, -26.61203)
+position = Vector2(0, -30.706223)
 scale = Vector2(0.925, 1)
 shape = SubResource("RectangleShape2D_n8xr2")
 
 [node name="Ok Shot" type="Area2D" parent="CanvasLayer/Everything/Boob Game/Kai Boob" unique_id=356486744 groups=["ok"]]
-position = Vector2(0, 11.555555)
+position = Vector2(0, 11.333334)
 scale = Vector2(0.21694915, 0.21711111)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Everything/Boob Game/Kai Boob/Ok Shot" unique_id=1838276002]
-position = Vector2(0, -25.588593)
+position = Vector2(0, -32.75332)
 scale = Vector2(0.925, 1)
 shape = SubResource("RectangleShape2D_gda5h")
 debug_color = Color(0.8056882, 0.002367263, 0.99639434, 0.41960785)

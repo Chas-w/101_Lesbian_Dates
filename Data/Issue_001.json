@@ -98,7 +98,43 @@
 				"Queue" : null,
 				"Queue_Game" : false,
 				"Queue_Async" : false
-			}		
+			},			
+			{
+				"Status" : "ok?",
+				"Status_is_Array" : false,
+				"Wait_For_Progression" : false,
+				"Line" : "Ok good, oh my god I'm so glad that's over.",
+				"Vibe" : "Friendly",
+				"One_off" : true,
+				"Interruption" : false,
+				"Queue" : null,
+				"Queue_Game" : false,
+				"Queue_Async" : false
+			},	
+			{
+				"Status" : "copy that",
+				"Status_is_Array" : false,
+				"Wait_For_Progression" : false,
+				"Line" : "Copy that, my bad.",
+				"Vibe" : "Friendly",
+				"One_off" : true,
+				"Interruption" : false,
+				"Queue" : null,
+				"Queue_Game" : false,
+				"Queue_Async" : false
+			},
+			{
+				"Status" : "try again",
+				"Status_is_Array" : false,
+				"Wait_For_Progression" : false,
+				"Line" : "lemme try again",
+				"Vibe" : "Friendly",
+				"One_off" : true,
+				"Interruption" : false,
+				"Queue" : null,
+				"Queue_Game" : false,
+				"Queue_Async" : false
+			}	
 		]
 	},
 
@@ -190,6 +226,90 @@
 				"Queue" : "boob_game",
 				"Queue_Game" : true,
 				"Queue_Async" : true
+			},
+			{
+				"Status" : "ok",
+				"Status_is_Array" : false,
+				"Wait_For_Progression" : false,
+				"Line" : "not too shabby",
+				"Vibe" : "Friendly",
+				"Player_Response" : false,
+				"Next_Status" : "shabby",
+				"Response_Options" : null,
+				"Exit_Moment" : false,
+				"Queue" : null,
+				"Queue_Game" : false,
+				"Queue_Async" : false          
+			},
+			{
+				"Status" : "shabby",
+				"Status_is_Array" : false,
+				"Wait_For_Progression" : false,
+				"Line" : "I mean it's not centered at all . . .  but I love it.",
+				"Vibe" : "Friendly",
+				"Player_Response" : true,
+				"Next_Status" : "ok?",
+				"Response_Options" : null,
+				"Exit_Moment" : false,
+				"Queue" : null,
+				"Queue_Game" : false,
+				"Queue_Async" : false          
+			},
+			{
+				"Status" : "great!",
+				"Status_is_Array" : false,
+				"Wait_For_Progression" : false,
+				"Line" : "Hey! That was perfect! I love it.",
+				"Vibe" : "Friendly",
+				"Player_Response" : true,
+				"Next_Status" : "ok?",
+				"Response_Options" : null,
+				"Exit_Moment" : false,
+				"Queue" : null,
+				"Queue_Game" : false,
+				"Queue_Async" : false          
+			},
+			{
+				"Status" : "ummm",
+				"Status_is_Array" : false,
+				"Wait_For_Progression" : false,
+				"Line" : "Ummm, wanna try again?",
+				"Vibe" : "Friendly",
+				"Player_Response" : true,
+				"Next_Status" : "copy that",
+				"Response_Options" : null,
+				"Exit_Moment" : false,
+				"Queue" : null,
+				"Queue_Game" : false,
+				"Queue_Async" : false   	
+			},
+			{
+				"Status" : "right",
+				"Status_is_Array" : false,
+				"Wait_For_Progression" : false,
+				"Line" : "Right . . . so you didn't pierce me at all.",
+				"Vibe" : "Friendly",
+				"Player_Response" : true,
+				"Next_Status" : "try again",
+				"Response_Options" : null,
+				"Exit_Moment" : false,
+				"Queue" : null,
+				"Queue_Game" : false,
+				"Queue_Async" : false   	
+			},
+			{
+				"Status" : "erm",
+				"Status_is_Array" : false,
+				"Wait_For_Progression" : false,
+				"Line" : "Let's try that one again.",
+				"Vibe" : "Friendly",
+				"Player_Response" : true,
+				"Next_Status" : "copy that",
+				"Response_Options" : null,
+				"Exit_Moment" : false,
+				"Queue" : null,
+				"Queue_Game" : false,
+				"Queue_Async" : false   	
 			}
 		]
 	},

@@ -1,4 +1,7 @@
 extends Control
+
+@export var dialogue_manager : Control
+
 @export var kai_boob : Sprite2D
 @export var paul_boob : Sprite2D
 @export var needle : Sprite2D
@@ -22,6 +25,9 @@ var great_shot : bool
 
 var buffer = 1
 var wait_after_pierce = 1
+var wait_to_progress = 3
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	speed = randf_range(min_speed,max_speed)
@@ -58,10 +64,20 @@ func _process(delta):
 						wait_after_pierce -= delta
 					else: 
 						if (!ok_shot && !great_shot):
-							pierce = false
-							needle.position = needle_start_pos.position
-							wait_after_pierce = buffer
-
+							var speak = ["ummm", "erm", "right"]
+							dialogue_manager._progress_date_dialogue(speak[randi_range(0,2)])
+							wait_to_progress -= delta
+							if (wait_to_progress <= 0):
+								wait_to_progress = 3
+								pierce = false
+								needle.position = needle_start_pos.position
+						else:
+							if(ok_shot):
+								dialogue_manager._progress_date_dialogue("ok")
+								start_game = false
+							if(great_shot && !ok_shot):
+								dialogue_manager._progress_date_dialogue("great!")
+								start_game = false
 
 func _on_area_2d_area_entered(area):
 	if (started):

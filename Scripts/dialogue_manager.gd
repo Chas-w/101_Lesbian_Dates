@@ -9,6 +9,7 @@ extends Control
 @export var date_dialogue : RichTextLabel
 @export var progression_icon : Sprite2D
 @export_range (0,1.5,.01) var display_buffer #amount of time inbetween each word
+
 var date_buffer : float = 0
 var paul_buffer
 var JSON_dict : Dictionary
