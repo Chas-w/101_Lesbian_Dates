@@ -351,7 +351,7 @@ scale = Vector2(0.99999994, 1)
 shape = SubResource("RectangleShape2D_fs3k7")
 debug_color = Color(0.3372549, 0.8235294, 0, 0.41960785)
 
-[node name="Dialogue Control" type="Control" parent="CanvasLayer/Everything/Boob Game" unique_id=1955836158 node_paths=PackedStringArray("ISSUE", "brain", "brain_spawn_loc", "paul_dialogue", "date_dialogue", "progression_icon")]
+[node name="Dialogue Control" type="Control" parent="CanvasLayer/Everything/Boob Game" unique_id=1955836158 node_paths=PackedStringArray("ISSUE", "brain", "brain_spawn_loc", "paul_dialogue", "paul_bubble", "date_dialogue", "date_bubble", "progression_icon")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -364,7 +364,9 @@ brain = NodePath("../../Brain")
 brain_spawn_loc = NodePath("../../Brain/Spawn Location")
 JSON_file_path = "res://Data/Issue_001.json"
 paul_dialogue = NodePath("Paul/Panel/RichTextLabel")
+paul_bubble = NodePath("Paul/Panel")
 date_dialogue = NodePath("Date/Panel/RichTextLabel")
+date_bubble = NodePath("Date/Panel")
 progression_icon = NodePath("Awaiting Progression Icon")
 display_buffer = 0.46
 
@@ -380,6 +382,7 @@ offset_right = 1.973938
 offset_bottom = -41.22003
 
 [node name="Panel" type="Panel" parent="CanvasLayer/Everything/Boob Game/Dialogue Control/Paul" unique_id=1998781770]
+visible = false
 material = SubResource("ShaderMaterial_h8gaa")
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 1
@@ -422,6 +425,7 @@ offset_right = 0.24797058
 offset_bottom = -0.103012085
 
 [node name="Panel" type="Panel" parent="CanvasLayer/Everything/Boob Game/Dialogue Control/Date" unique_id=526484516]
+visible = false
 material = SubResource("ShaderMaterial_h8gaa")
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 1

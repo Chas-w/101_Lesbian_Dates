@@ -9,6 +9,7 @@
 				"Vibe" : "Flirty",
 				"One_off" : false,
 				"Interruption" : false,
+				"Exit_Moment" : false,
 				"Queue" : null,
 				"Queue_Game" : false,				
 				"Queue_Async" : false
@@ -22,6 +23,7 @@
 				"Vibe" : "Flirty",
 				"One_off" : false,
 				"Interruption" : false,
+				"Exit_Moment" : false,
 				"Queue" : null,
 				"Queue_Game" : false,
 				"Queue_Async" : false
@@ -35,6 +37,7 @@
 				"Vibe" : "Flirty",
 				"One_off" : false,
 				"Interruption" : false,
+				"Exit_Moment" : false,
 				"Queue" : null,
 				"Queue_Game" : false,
 				"Queue_Async" : false
@@ -47,6 +50,7 @@
 				"Vibe" : "Flirty",
 				"One_off" : false,
 				"Interruption" : false,
+				"Exit_Moment" : false,
 				"Queue" : null,
 				"Queue_Game" : false,
 				"Queue_Async" : false
@@ -59,6 +63,7 @@
 				"Vibe" : "Flirty",
 				"One_off" : true,
 				"Interruption" : false,
+				"Exit_Moment" : false,
 				"Queue" : null,
 				"Queue_Game" : false,
 				"Queue_Async" : false
@@ -71,6 +76,7 @@
 				"Vibe" : "Flirty",
 				"One_off" : true,
 				"Interruption" : false,
+				"Exit_Moment" : false,
 				"Queue" : null,
 				"Queue_Game" : false,
 				"Queue_Async" : false
@@ -83,6 +89,7 @@
 				"Vibe" : "Flirty",
 				"One_off" : true,
 				"Interruption" : false,
+				"Exit_Moment" : false,
 				"Queue" : null,
 				"Queue_Game" : false,
 				"Queue_Async" : false
@@ -95,6 +102,7 @@
 				"Vibe" : "Flirty",
 				"One_off" : true,
 				"Interruption" : false,
+				"Exit_Moment" : false,
 				"Queue" : null,
 				"Queue_Game" : false,
 				"Queue_Async" : false
@@ -107,6 +115,7 @@
 				"Vibe" : "Friendly",
 				"One_off" : true,
 				"Interruption" : false,
+				"Exit_Moment" : false,
 				"Queue" : null,
 				"Queue_Game" : false,
 				"Queue_Async" : false
@@ -119,6 +128,7 @@
 				"Vibe" : "Friendly",
 				"One_off" : true,
 				"Interruption" : false,
+				"Exit_Moment" : false,
 				"Queue" : null,
 				"Queue_Game" : false,
 				"Queue_Async" : false
@@ -131,6 +141,7 @@
 				"Vibe" : "Friendly",
 				"One_off" : true,
 				"Interruption" : false,
+				"Exit_Moment" : false,
 				"Queue" : null,
 				"Queue_Game" : false,
 				"Queue_Async" : false

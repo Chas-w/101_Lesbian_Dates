@@ -1,15 +1,34 @@
 extends Control
 
 @export_category("Setup")
+##what issue are we on
 @export var ISSUE : Node2D
+##section with interactable floaters
 @export var brain : Control
+##where floaters will spawn
 @export var brain_spawn_loc : Node2D
+##dialogue data path
 @export var JSON_file_path : String
+##paul's dialogue 
 @export var paul_dialogue : RichTextLabel
+##paul dialogue bubble
+@export var paul_bubble : Panel
+##date's dialogue 
 @export var date_dialogue : RichTextLabel
-@export var progression_icon : Sprite2D
-@export_range (0,1.5,.01) var display_buffer #amount of time inbetween each word
+##date dialogue bubble
+@export var date_bubble : Panel
+##used when no floater will progress main dialogue
+@export var progression_icon : Sprite2D 
 
+@export_category("Buffers and Dictionaries")
+var paul_hideable : bool = true
+var date_hideable : bool = true
+##amount of time inbetween each word
+@export_range (0,1.5,.01) var display_buffer 
+##amount of time before hiding bubble
+@export var hide_buffer : float = 2
+var paul_hide_buff : float
+var date_hide_buff : float
 var date_buffer : float = 0
 var paul_buffer
 var JSON_dict : Dictionary
@@ -48,6 +67,8 @@ func _ready():
 	date_name = date_dialogue_dict.Name
 	date_dialogue_array = date_dialogue_dict.Dialogue
 	paul_dialogue_array = paul_dialogue_dict.Dialogue
+	date_hide_buff = hide_buffer
+	paul_hide_buff = hide_buffer
 	_progress_date_dialogue("next") 
 
 func _process(delta):
@@ -60,7 +81,21 @@ func _process(delta):
 				_progress_date_dialogue(next_status) #problem area
 			waiting_for_progression = false
 			progression_icon.visible = false
-
+	
+	if (paul_hideable && paul_bubble.visible):
+		if(paul_hide_buff >=0):
+			paul_hide_buff -= delta
+		else:
+			#play hide animation
+			paul_bubble.visible = false
+			paul_dialogue.text = ""
+	if (date_hideable && date_bubble.visible):
+		if(date_hide_buff >= 0):
+			date_hide_buff -= delta
+		else:
+			date_bubble.visible = false
+			date_dialogue.text = ""
+	
 	if (display_date_line):
 		_display_date_dialogue(current_date_dialogue.Line, delta)
 	if (display_paul_line):
@@ -68,6 +103,10 @@ func _process(delta):
 
 func _display_date_dialogue(disp : String, delta):
 	if (!setup_date_display):
+		date_hideable = false
+		if (!date_bubble.visible):
+			date_bubble.visible = true
+			date_hide_buff = hide_buffer
 		print("[" + date_name + " Current Sentence]: " + disp)
 		date_buffer = randf_range(.01,display_buffer)
 		date_split_sentence = disp.split(" ") 
@@ -88,11 +127,13 @@ func _display_date_dialogue(disp : String, delta):
 			else:
 				display_date_line = false
 				setup_date_display = false
+				
 				if (current_date_dialogue.Queue == null):
 					if (current_date_dialogue.Wait_For_Progression):
 							next_status = current_date_dialogue.Next_Status
 							waiting_for_progression = true
 					else:
+						date_hideable = true
 						if (current_date_dialogue.Response_Options != null):
 							_display_paul_options()
 						else:
@@ -103,6 +144,7 @@ func _display_date_dialogue(disp : String, delta):
 				else:
 					#if queue
 					if(current_date_dialogue.Queue_Game):
+						date_hideable = true
 						if (!current_date_dialogue.Queue_Async):
 							pass
 						else:
@@ -123,6 +165,10 @@ func _display_date_dialogue(disp : String, delta):
 
 func _display_paul_dialogue(disp : String, delta):
 	if (!setup_paul_display):
+			paul_hideable = false
+			if (!paul_bubble.visible):
+				paul_bubble.visible = true
+				paul_hide_buff = hide_buffer
 			print("[Paul Current Sentence]: " + disp)
 			paul_buffer = randf_range(.01,display_buffer)
 			paul_split_sentence = disp.split(" ") 
@@ -149,6 +195,7 @@ func _display_paul_dialogue(disp : String, delta):
 							waiting_for_progression = true
 					else:
 						_progress_date_dialogue(paul_status)
+						paul_hideable = true
 				else:
 				#if queue
 					if(current_paul_dialogue.Queue_Game):
