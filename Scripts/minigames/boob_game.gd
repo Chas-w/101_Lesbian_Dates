@@ -22,6 +22,7 @@ var speed
 
 var ok_shot : bool 
 var great_shot : bool 
+var quip : bool
 
 var buffer = 1
 var wait_after_pierce = 1
@@ -44,6 +45,7 @@ func _process(delta):
 			if (Input.is_action_just_pressed("Enter")):
 				pierce = true
 			if (!pierce):
+				quip = false
 				if (rise):
 					if (needle.position.y > needle_max_pos.position.y):
 						needle.position.y -= speed * delta
@@ -64,8 +66,10 @@ func _process(delta):
 						wait_after_pierce -= delta
 					else: 
 						if (!ok_shot && !great_shot):
-							var speak = ["ummm", "erm", "right"]
-							dialogue_manager._progress_date_dialogue(speak[randi_range(0,2)])
+							if (!quip):
+								var speak = ["ummm", "erm", "right"]
+								dialogue_manager._progress_date_dialogue(speak[randi_range(0,2)])
+								quip = true
 							wait_to_progress -= delta
 							if (wait_to_progress <= 0):
 								wait_to_progress = 3
