@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://cb6oxc8guiq0k" path="res://Imported Textures/black_bubble.png" id="8_pppn2"]
 [ext_resource type="Texture2D" uid="uid://b3kgil3r5hg1x" path="res://Imported Textures/brain.png" id="9_n8xr2"]
 [ext_resource type="Script" uid="uid://bsmds4jycqusj" path="res://Scripts/minigames/boob_game.gd" id="10_gda5h"]
+[ext_resource type="PackedScene" uid="uid://bu3ldete44hh3" path="res://Entities/inventory_item.tscn" id="10_n8xr2"]
 
 [sub_resource type="Animation" id="Animation_m6anw"]
 resource_name = "Kai_Pierce_Paul"
@@ -72,6 +73,93 @@ size = Vector2(29, 381.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pw7vx"]
 size = Vector2(416.5, 26.5)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_n8xr2"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_fs3k7"]
+noise = SubResource("FastNoiseLite_n8xr2")
+
+[sub_resource type="Animation" id="Animation_ts13j"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mover:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(195, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Mover:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(518, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_rhysv"]
+resource_name = "mover_in"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mover:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(195, -0.25, 0, 0.25, 0, 198, -0.16666667, -0.5, 0, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Mover:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(518, -0.25, 0, 0.25, 0, 179, -0.16666667, 56.5, 0, 0),
+"times": PackedFloat32Array(0, 1)
+}
+
+[sub_resource type="Animation" id="Animation_alpk4"]
+resource_name = "mover_out"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mover:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(198, -0.16666667, -0.5, 0, 0, 195, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(-0.0333333, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Mover:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(179, -0.16666667, 56.5, 0, 0, 518, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(-0.0333333, 1)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cgiis"]
+_data = {
+&"RESET": SubResource("Animation_ts13j"),
+&"mover_in": SubResource("Animation_rhysv"),
+&"mover_out": SubResource("Animation_alpk4")
+}
 
 [sub_resource type="Gradient" id="Gradient_m6anw"]
 colors = PackedColorArray(0, 1, 0.92156863, 1, 0.39215687, 0.32941177, 0.8901961, 1)
@@ -194,6 +282,24 @@ offset_bottom = -4.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="inventory item" parent="CanvasLayer/Everything/Inventory" unique_id=426993737 node_paths=PackedStringArray("anim_player", "mover", "item_unfurl", "thought_spawn_location") instance=ExtResource("10_n8xr2")]
+z_index = -1
+layout_mode = 1
+anchor_right = 0.95100003
+anchor_bottom = 2.772
+offset_left = -186.77602
+offset_top = 32.01599
+offset_right = -181.927
+offset_bottom = 34.003967
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(0.3, 0.3)
+anim_player = NodePath("../../View/AnimationPlayer")
+mover = NodePath("../../View/Mover")
+item_name = "polaroid pic"
+item_unfurl = NodePath("../../View/Mover/polaroid pic")
+thought_spawn_location = NodePath("../../Brain/Spawn Location")
+
 [node name="Brain" type="Control" parent="CanvasLayer/Everything" unique_id=1848323068]
 layout_mode = 1
 anchor_left = 0.67300004
@@ -258,6 +364,17 @@ offset_right = -3.0
 offset_bottom = 0.2399292
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Mover" type="Node2D" parent="CanvasLayer/Everything/View" unique_id=650188909]
+position = Vector2(195, 518)
+
+[node name="polaroid pic" type="Sprite2D" parent="CanvasLayer/Everything/View/Mover" unique_id=2081081467]
+z_index = -1
+scale = Vector2(0.56, 0.56)
+texture = SubResource("NoiseTexture2D_fs3k7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Everything/View" unique_id=1848401121]
+libraries/ = SubResource("AnimationLibrary_cgiis")
 
 [node name="Boob Game" type="Control" parent="CanvasLayer/Everything" unique_id=749111273 node_paths=PackedStringArray("dialogue_manager", "kai_boob", "paul_boob", "needle", "needle_max_pos", "needle_min_pos", "needle_start_pos", "pierce_pos")]
 layout_mode = 1

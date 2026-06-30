@@ -2,11 +2,25 @@
 
 [ext_resource type="Script" uid="uid://blese6kt35wtk" path="res://Scripts/inventory_item.gd" id="1_bxa1r"]
 
-[node name="Inventory Item" type="Button" unique_id=1614442202]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_aq4h5"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_bxa1r"]
+noise = SubResource("FastNoiseLite_aq4h5")
+
+[node name="inventory item" type="Button" unique_id=426993737]
 anchors_preset = -1
-anchor_right = 0.038000003
-anchor_bottom = 0.048
-offset_right = -35.776
-offset_bottom = -23.104
-text = "Item"
+anchor_left = 0.28800002
+anchor_top = 0.08800001
+anchor_right = 0.74
+anchor_bottom = 0.89000005
+offset_left = 150.22397
+offset_top = 201.976
+offset_right = -150.47998
+offset_bottom = -201.72003
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+toggle_mode = true
+icon = SubResource("NoiseTexture2D_bxa1r")
 script = ExtResource("1_bxa1r")
